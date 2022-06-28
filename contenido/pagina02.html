@@ -8,8 +8,29 @@
 
 </head>
 <body>
-    <img class="elementos" id="textoInicio" src="./img/pagina01/texto.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos" id="btn-iniciar" src="./img/pagina01/boton.png" data-posX="195" data-posY="440" alt="">
+    <img class="elementos" id="titulo" src="./img/pagina02/titulo.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="instrucciones" src="./img/pagina02/instrucciones.png" data-posX="0" data-posY="0" alt="">
+
+    <img class="elementos" id="definicion01" src="./img/pagina02/definicion01.png" data-posX="20" data-posY="110" alt="">
+    <img class="elementos" id="definicion02" src="./img/pagina02/definicion02.png" data-posX="20" data-posY="180" alt="">
+    <img class="elementos" id="definicion03" src="./img/pagina02/definicion03.png" data-posX="20" data-posY="230" alt="">
+    <img class="elementos" id="definicion04" src="./img/pagina02/definicion04.png" data-posX="20" data-posY="280" alt="">
+    <img class="elementos" id="definicion05" src="./img/pagina02/definicion05.png" data-posX="20" data-posY="330" alt="">
+    <img class="elementos" id="definicion06" src="./img/pagina02/definicion06.png" data-posX="20" data-posY="380" alt="">
+    <img class="elementos" id="definicion07" src="./img/pagina02/definicion07.png" data-posX="20" data-posY="430" alt="">
+    <img class="elementos" id="definicion08" src="./img/pagina02/definicion08.png" data-posX="20" data-posY="480" alt="">
+
+    <div class="elementos drop" id="drop3" data-id="3" data-posX="492" data-posY="117" style="width:12px;  height:10px; "></div>
+
+    <img class="elementos drag" id="drag1" data-id="1" src="./img/pagina02/drag01.png" data-posX="570" data-posY="220" alt="">
+    <img class="elementos drag" id="drag2" data-id="2" src="./img/pagina02/drag02.png" data-posX="570" data-posY="280" alt="">
+    <img class="elementos drag" id="drag3" data-id="3" src="./img/pagina02/drag03.png" data-posX="570" data-posY="340" alt="">
+    <img class="elementos drag" id="drag4" data-id="4" src="./img/pagina02/drag04.png" data-posX="570" data-posY="400" alt="">
+    <img class="elementos drag" id="drag5" data-id="5" src="./img/pagina02/drag05.png" data-posX="570" data-posY="460" alt="">
+    <img class="elementos drag" id="drag6" data-id="6" src="./img/pagina02/drag06.png" data-posX="800" data-posY="280" alt="">
+    <img class="elementos drag" id="drag7" data-id="7" src="./img/pagina02/drag07.png" data-posX="800" data-posY="340" alt="">
+    <img class="elementos drag" id="drag8" data-id="8" src="./img/pagina02/drag08.png" data-posX="800" data-posY="400" alt="">
+
 
     <!-- Script de la página -->
     <script type="module">
@@ -25,13 +46,52 @@
             ]
 
             //Crear Variables-----------------------------------------------------
-            
+            const titulo = $('#titulo'); 
+            const instrucciones = $('#instrucciones'); 
+
+            const def01 = $('#definicion01'); 
+            const def02 = $('#definicion02'); 
+            const def03 = $('#definicion03'); 
+            const def04 = $('#definicion04'); 
+            const def05 = $('#definicion05'); 
+            const def06 = $('#definicion06'); 
+            const def07 = $('#definicion07'); 
+            const def08 = $('#definicion08');
+
+            const drag1 = $('#drag1'); 
+            const drag2 = $('#drag2'); 
+            const drag3 = $('#drag3'); 
+            const drag4 = $('#drag4'); 
+            const drag5 = $('#drag5'); 
+            const drag6 = $('#drag6'); 
+            const drag7 = $('#drag7'); 
+            const drag8 = $('#drag8'); 
             
             //Iniciar contenido de la página--------------------------------------
             cargando(iniciarPagina);
 
             function iniciarPagina(){
                 aplicacion.activarNavegacion();
+
+                animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
+                animacionEntrada(instrucciones, 'izquierda-derecha', 1, 1);
+                animacionEntrada(def01, 'izquierda-derecha', 1, 1.5);
+                animacionEntrada(def02, 'izquierda-derecha', 1, 2);
+                animacionEntrada(def03, 'izquierda-derecha', 1, 2.5);
+                animacionEntrada(def04, 'izquierda-derecha', 1, 3);
+                animacionEntrada(def05, 'izquierda-derecha', 1, 3.5);
+                animacionEntrada(def06, 'izquierda-derecha', 1, 4);
+                animacionEntrada(def07, 'izquierda-derecha', 1, 4.5);
+                animacionEntrada(def08, 'izquierda-derecha', 1, 5);
+
+                animacionEntrada(drag1, 'arriba-abajo', 1, 1.5);
+                animacionEntrada(drag2, 'arriba-abajo', 1, 2);
+                animacionEntrada(drag3, 'arriba-abajo', 1, 2.5);
+                animacionEntrada(drag4, 'arriba-abajo', 1, 3);
+                animacionEntrada(drag5, 'arriba-abajo', 1, 3.5);
+                animacionEntrada(drag6, 'arriba-abajo', 1, 4);
+                animacionEntrada(drag7, 'arriba-abajo', 1, 4.5);
+                animacionEntrada(drag8, 'arriba-abajo', 1, 5);
             }
 
             function finalPagina(){
