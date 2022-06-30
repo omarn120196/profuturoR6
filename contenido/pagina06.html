@@ -48,7 +48,8 @@
             // Cargar Audios------------------------------------------------------
             const audio = [
                 new Audio('./audios/R6_06_1.mp3'),
-                new Audio('./audios/R6_06_2.mp3')
+                new Audio('./audios/R6_06_2.mp3'),
+                new Audio('./audios/s_bien.mp3')
             ]
 
             //Crear Variables-----------------------------------------------------
@@ -148,6 +149,7 @@
                         revert: false,
                     });
 
+                    aplicacion.reproducirAudio(audio[2], actividad, 1);
                     animacionSalida(dragActivo, 'default', 1);
                     aciertos++;
                     if(aciertos == 18){

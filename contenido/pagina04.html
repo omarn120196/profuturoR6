@@ -262,18 +262,18 @@
 
                     if(errorescancelacion == 6 || letrascancelacion == 4){
                         setTimeout(()=>{
-                            animacionSalida(frase1, 'default', 1);
-                            animacionSalida(casillas1, 'default', 1);
+                            animacionSalida(frase1, 'default', 1, 3);
+                            animacionSalida(casillas1, 'default', 1, 3);
                             animacionSalida(cabeza1, 'default', 1);
                             animacionSalida(brazo1_1, 'default', 1);
                             animacionSalida(brazo2_1, 'default', 1);
                             animacionSalida(pierna1_1, 'default', 1);
                             animacionSalida(pierna2_1, 'default', 1);
                             animacionSalida(cuerpo1, 'default', 1);
-                            animacionSalida(cancelacionA, 'default', 1);
-                            animacionSalida(cancelacionC, 'default', 1);
-                            animacionSalida(cancelacionL, 'default', 1);
-                            animacionSalida(cancelacionN, 'default', 1);
+                            animacionSalida(cancelacionA, 'default', 1, 3);
+                            animacionSalida(cancelacionC, 'default', 1, 3);
+                            animacionSalida(cancelacionL, 'default', 1, 3);
+                            animacionSalida(cancelacionN, 'default', 1, 3);
                             if(letrascancelacion == 4){
                                 aciertos++;
                             }
@@ -285,8 +285,8 @@
 
             function salidaCompletar1(){
                 cancelacion = false;
-                animacionEntrada(frase2, 'izquierda-derecha', 1, 2);
-                animacionEntrada(casillas2, 'arriba-abajo', 1, 2);
+                animacionEntrada(frase2, 'izquierda-derecha', 1, 4);
+                animacionEntrada(casillas2, 'arriba-abajo', 1, 4);
                 $(document).off('keydown');
                 completar2();
             }
@@ -345,19 +345,19 @@
 
                     if(erroresrectificacion == 6 || letrasrectificacion == 5){
                         setTimeout(()=>{
-                            animacionSalida(frase2, 'default', 1);
-                            animacionSalida(casillas2, 'default', 1);
+                            animacionSalida(frase2, 'default', 1, 3);
+                            animacionSalida(casillas2, 'default', 1, 3);
                             animacionSalida(cabeza2, 'default', 1);
                             animacionSalida(brazo1_2, 'default', 1);
                             animacionSalida(brazo2_2, 'default', 1);
                             animacionSalida(pierna1_2, 'default', 1);
                             animacionSalida(pierna2_2, 'default', 1);
                             animacionSalida(cuerpo2, 'default', 1);
-                            animacionSalida(rectificacionA, 'default', 1);
-                            animacionSalida(rectificacionC, 'default', 1);
-                            animacionSalida(rectificacionF, 'default', 1);
-                            animacionSalida(rectificacionR, 'default', 1);
-                            animacionSalida(rectificacionT, 'default', 1);
+                            animacionSalida(rectificacionA, 'default', 1, 3);
+                            animacionSalida(rectificacionC, 'default', 1, 3);
+                            animacionSalida(rectificacionF, 'default', 1, 3);
+                            animacionSalida(rectificacionR, 'default', 1, 3);
+                            animacionSalida(rectificacionT, 'default', 1, 3);
                             if(letrasrectificacion == 5){
                                 aciertos++;
                             }
@@ -369,8 +369,8 @@
 
             function salidaCompletar2(){
                 rectificacion = false;
-                animacionEntrada(frase3, 'izquierda-derecha', 1, 2);
-                animacionEntrada(casillas3, 'arriba-abajo', 1, 2);
+                animacionEntrada(frase3, 'izquierda-derecha', 1, 4);
+                animacionEntrada(casillas3, 'arriba-abajo', 1, 4);
                 $(document).off('keydown');
                 completar3();
             }
@@ -421,17 +421,17 @@
 
                     if(erroresoposicion == 6 || letrasoposicion == 3){
                         setTimeout(()=>{
-                            animacionSalida(frase3, 'default', 1);
-                            animacionSalida(casillas3, 'default', 1);
+                            animacionSalida(frase3, 'default', 1, 3);
+                            animacionSalida(casillas3, 'default', 1, 3);
                             animacionSalida(cabeza3, 'default', 1);
                             animacionSalida(brazo1_3, 'default', 1);
                             animacionSalida(brazo2_3, 'default', 1);
                             animacionSalida(pierna1_3, 'default', 1);
                             animacionSalida(pierna2_3, 'default', 1);
                             animacionSalida(cuerpo3, 'default', 1);
-                            animacionSalida(oposicionI, 'default', 1);
-                            animacionSalida(oposicionO, 'default', 1);
-                            animacionSalida(oposicionS, 'default', 1);
+                            animacionSalida(oposicionI, 'default', 1, 3);
+                            animacionSalida(oposicionO, 'default', 1, 3);
+                            animacionSalida(oposicionS, 'default', 1, 3);
                             if(letrasoposicion == 3){
                                 aciertos++;
                             }
@@ -443,8 +443,8 @@
 
             function salidaCompletar3(){
                 oposicion = false;
-                animacionEntrada(frase4, 'izquierda-derecha', 1, 2);
-                animacionEntrada(casillas4, 'arriba-abajo', 1, 2);
+                animacionEntrada(frase4, 'izquierda-derecha', 1, 4);
+                animacionEntrada(casillas4, 'arriba-abajo', 1, 4);
                 $(document).off('keydown');
                 completar4();
             }
@@ -503,19 +503,19 @@
 
                     if(erroresacceso == 6 || letrasacceso == 5){
                         setTimeout(()=>{
-                            animacionSalida(frase4, 'default', 1);
-                            animacionSalida(casillas4, 'default', 1);
+                            animacionSalida(frase4, 'default', 1, 3);
+                            animacionSalida(casillas4, 'default', 1, 3);
                             animacionSalida(cabeza4, 'default', 1);
                             animacionSalida(brazo1_4, 'default', 1);
                             animacionSalida(brazo2_4, 'default', 1);
                             animacionSalida(pierna1_4, 'default', 1);
                             animacionSalida(pierna2_4, 'default', 1);
                             animacionSalida(cuerpo4, 'default', 1);
-                            animacionSalida(accesoA, 'default', 1);
-                            animacionSalida(accesoC, 'default', 1);
-                            animacionSalida(accesoS, 'default', 1);
-                            animacionSalida(accesoE, 'default', 1);
-                            animacionSalida(accesoO, 'default', 1);
+                            animacionSalida(accesoA, 'default', 1, 3);
+                            animacionSalida(accesoC, 'default', 1, 3);
+                            animacionSalida(accesoS, 'default', 1, 3);
+                            animacionSalida(accesoE, 'default', 1, 3);
+                            animacionSalida(accesoO, 'default', 1, 3);
                             if(letrasacceso == 5){
                                 aciertos++;
                             }
