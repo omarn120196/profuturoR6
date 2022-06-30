@@ -20,14 +20,14 @@
     <img class="elementos" id="definicion07" src="./img/pagina02/definicion07.png" data-posX="20" data-posY="430" alt="">
     <img class="elementos" id="definicion08" src="./img/pagina02/definicion08.png" data-posX="20" data-posY="480" alt="">
 
-    <div class="elementos drop" id="drop7" data-id="7" data-posX="540" data-posY="140" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop8" data-id="8" data-posX="540" data-posY="200" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop6" data-id="6" data-posX="540" data-posY="250" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop3" data-id="3" data-posX="540" data-posY="300" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop5" data-id="5" data-posX="540" data-posY="350" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop2" data-id="2" data-posX="540" data-posY="400" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop1" data-id="1" data-posX="540" data-posY="450" style="width:25px;  height:15px;"></div>
-    <div class="elementos drop" id="drop4" data-id="4" data-posX="540" data-posY="520" style="width:25px;  height:15px;"></div>
+    <div class="elementos drop" id="drop7" data-id="7" data-posX="540" data-posY="120" style="width:25px;  height:50px;"></div>
+    <div class="elementos drop" id="drop8" data-id="8" data-posX="540" data-posY="187" style="width:25px;  height:35px;"></div>
+    <div class="elementos drop" id="drop6" data-id="6" data-posX="540" data-posY="237" style="width:25px;  height:35px;"></div>
+    <div class="elementos drop" id="drop3" data-id="3" data-posX="540" data-posY="285" style="width:25px;  height:35px;"></div>
+    <div class="elementos drop" id="drop5" data-id="5" data-posX="540" data-posY="335" style="width:25px;  height:35px;"></div>
+    <div class="elementos drop" id="drop2" data-id="2" data-posX="540" data-posY="388" style="width:25px;  height:35px;"></div>
+    <div class="elementos drop" id="drop1" data-id="1" data-posX="540" data-posY="437" style="width:25px;  height:35px;"></div>
+    <div class="elementos drop" id="drop4" data-id="4" data-posX="540" data-posY="495" style="width:25px;  height:55px;"></div>
 
     <img class="elementos drag" id="drag1" data-id="1" src="./img/pagina02/drag01.png" data-posX="570" data-posY="220" alt="">
     <img class="elementos drag" id="drag2" data-id="2" src="./img/pagina02/drag02.png" data-posX="570" data-posY="280" alt="">
@@ -145,7 +145,7 @@
                     revert: true,
                     start: function (event, ui) {
                         dragSelect = $(this).data('id');
-                        // console.log(dragSelect);
+                        console.log(dragSelect);
                     }
                 });
 
@@ -176,8 +176,8 @@
 
                         aciertos++;
                         disponibles --;
-                        // console.log("aciertos:", aciertos);
-                        // console.log("disponibles:", disponibles);
+                        console.log("aciertos:", aciertos);
+                        console.log("disponibles:", disponibles);
 
                         if (disponibles === 0){
                             evaluar();
@@ -187,20 +187,24 @@
                         let dragActivo = $(`#drag${dragSelect}`);
                         let dropActivo = $(`#drop${dropCorrespondiente}`);
 
-                        dragActivo.draggable({
-                            revert: false,
-                        });
+                        setTimeout(() => {
+                            dragActivo.remove();
+                        }, 500);
 
-                        dragActivo.draggable("disable");
+                        // dragActivo.draggable({
+                        //     revert: true,
+                        // });
 
-                        dragActivo.css({
-                            cursor: 'default'
-                        });
+                        // dragActivo.draggable("disable");
 
-                        disponibles --;
-                        // console.log("disponibles:", disponibles);
+                        // dragActivo.css({
+                        //     cursor: 'default'
+                        // });
 
-                        if (disponibles === 0){
+                        disponibles--;
+                        console.log("disponibles:", disponibles);
+
+                        if (disponibles === 0) {
                             evaluar();
                         }
                     }
