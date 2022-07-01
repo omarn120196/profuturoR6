@@ -4,12 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 08 | I4L</title>
+    <title>Página 09 | I4L</title>
 
 </head>
 <body>
-    <img class="elementos" id="textoInicio" src="./img/pagina01/texto.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos" id="btn-iniciar" src="./img/pagina01/boton.png" data-posX="195" data-posY="440" alt="">
+    <img class="elementos" id="titulo" src="./img/pagina08/titulo.png" data-posX="0" data-posY="0" alt="">
+    <img class="elementos" id="instrucciones" src="./img/pagina08/instrucciones.png" data-posX="0" data-posY="0" alt="">
+
+    <!-- Tarjetas -->
+    <img class="elementos" id="m1" src="./img/pagina08/m1.png" data-posX="44" data-posY="208" alt="">
+    <img class="elementos" id="m2" src="./img/pagina08/m3.png" data-posX="191" data-posY="208" alt="">
+    <img class="elementos" id="m3" src="./img/pagina08/m6.png" data-posX="338" data-posY="208" alt="">
+    <img class="elementos" id="m4" src="./img/pagina08/m3.png" data-posX="485" data-posY="208" alt="">
+    <img class="elementos" id="m5" src="./img/pagina08/m2.png" data-posX="632" data-posY="208" alt="">
+    <img class="elementos" id="m6" src="./img/pagina08/m6.png" data-posX="779" data-posY="208" alt="">
+    <img class="elementos" id="m7" src="./img/pagina08/m4.png" data-posX="117" data-posY="327" alt="">
+    <img class="elementos" id="m8" src="./img/pagina08/m5.png" data-posX="264" data-posY="327" alt="">
+    <img class="elementos" id="m9" src="./img/pagina08/m2.png" data-posX="411" data-posY="327" alt="">
+    <img class="elementos" id="m10" src="./img/pagina08/m4.png" data-posX="558" data-posY="327" alt="">
+    <img class="elementos" id="m11" src="./img/pagina08/m1.png" data-posX="705" data-posY="327" alt="">
+    <img class="elementos" id="m12" src="./img/pagina08/m5.png" data-posX="852" data-posY="327" alt="">
+
+    <!-- Candados -->
+    <img class="elementos candados" data-card="1" data-numero="1" id="c1" src="./img/pagina08/c1.png" data-posX="44" data-posY="208" alt="">
+    <img class="elementos candados" data-card="3" data-numero="2" id="c2" src="./img/pagina08/c1.png" data-posX="191" data-posY="208" alt="">
+    <img class="elementos candados" data-card="6" data-numero="3" id="c3" src="./img/pagina08/c1.png" data-posX="338" data-posY="208" alt="">
+    <img class="elementos candados" data-card="3" data-numero="4" id="c4" src="./img/pagina08/c1.png" data-posX="485" data-posY="208" alt="">
+    <img class="elementos candados" data-card="2" data-numero="5" id="c5" src="./img/pagina08/c1.png" data-posX="632" data-posY="208" alt="">
+    <img class="elementos candados" data-card="6" data-numero="6" id="c6" src="./img/pagina08/c1.png" data-posX="779" data-posY="208" alt="">
+    <img class="elementos candados" data-card="4" data-numero="7" id="c7" src="./img/pagina08/c1.png" data-posX="117" data-posY="327" alt="">
+    <img class="elementos candados" data-card="5" data-numero="8" id="c8" src="./img/pagina08/c1.png" data-posX="264" data-posY="327" alt="">
+    <img class="elementos candados" data-card="2" data-numero="9" id="c9" src="./img/pagina08/c1.png" data-posX="411" data-posY="327" alt="">
+    <img class="elementos candados" data-card="4" data-numero="10" id="c10" src="./img/pagina08/c1.png" data-posX="558" data-posY="327" alt="">
+    <img class="elementos candados" data-card="1" data-numero="11" id="c11" src="./img/pagina08/c1.png" data-posX="705" data-posY="327" alt="">
+    <img class="elementos candados" data-card="5" data-numero="12" id="c12" src="./img/pagina08/c1.png" data-posX="852" data-posY="327" alt="">
+
+    <img class="elementos"id="retro" src="./img/pagina08/retro.png" data-posX="0" data-posY="0" alt="">
 
     <!-- Script de la página -->
     <script type="module">
@@ -21,21 +51,156 @@
             
             // Cargar Audios------------------------------------------------------
             const audio = [
-
+                new Audio('./audios/R6_08_1.mp3'),
+                new Audio('./audios/R6_08_2.mp3'),
+                new Audio('./audios/s_bien.mp3'),
+                new Audio('./audios/s_mal.mp3'),
             ]
 
             //Crear Variables-----------------------------------------------------
-            
+            const titulo = $('#titulo');
+            const instrucciones = $('#instrucciones');
+
+            const c1 = $('#c1');
+            const c2 = $('#c2');
+            const c3 = $('#c3');
+            const c4 = $('#c4');
+            const c5 = $('#c5');
+            const c6 = $('#c6');
+            const c7 = $('#c7');
+            const c8 = $('#c8');
+            const c9 = $('#c9');
+            const c10 = $('#c10');
+            const c11 = $('#c11');
+            const c12 = $('#c12');
+
+            const m1 = $('#m1');
+            const m2 = $('#m2');
+            const m3 = $('#m3');
+            const m4 = $('#m4');
+            const m5 = $('#m5');
+            const m6 = $('#m6');
+            const m7 = $('#m7');
+            const m8 = $('#m8');
+            const m9 = $('#m9');
+            const m10 = $('#m10');
+            const m11 = $('#m11');
+            const m12 = $('#m12');
+
+            const candados = $('.candados');
+            candados.css('cursor', 'pointer');
+
+            const retro = $('#retro');
+
+            let cartasAbiertas = 0;
+            let paresEncontrados = 0;
+            let par1;
+            let par2;
+            let carta1;
+            let carta2;
+            let candado1;
+            let candado2;
+            let candadoID1;
+            let candadoID2;
             
             //Iniciar contenido de la página--------------------------------------
             cargando(iniciarPagina);
 
             function iniciarPagina(){
-              
+                aplicacion.reproducirAudio(audio[0], memorama, 1000);
+                animacionEntrada(titulo, 'izquierda-derecha', 1);
+                animacionEntrada(instrucciones, 'derecha-izquierda', 1);
+                animacionEntrada(c1, 'arriba-abajo', .5, 1);
+                animacionEntrada(c2, 'arriba-abajo', .5, 1.5);
+                animacionEntrada(c3, 'arriba-abajo', .5, 2);
+                animacionEntrada(c4, 'arriba-abajo', .5, 2.5);
+                animacionEntrada(c5, 'arriba-abajo', .5, 3);
+                animacionEntrada(c6, 'arriba-abajo', .5, 3.5);
+                animacionEntrada(c7, 'arriba-abajo', .5, 4);
+                animacionEntrada(c8, 'arriba-abajo', .5, 4.5);
+                animacionEntrada(c9, 'arriba-abajo', .5, 5);
+                animacionEntrada(c10, 'arriba-abajo', .5, 5.5);
+                animacionEntrada(c11, 'arriba-abajo', .5, 6);
+                animacionEntrada(c12, 'arriba-abajo', .5, 6.5);
+
+                animacionEntrada(m1, 'default', .5, 7);
+                animacionEntrada(m2, 'default', .5, 7);
+                animacionEntrada(m3, 'default', .5, 7);
+                animacionEntrada(m4, 'default', .5, 7);
+                animacionEntrada(m5, 'default', .5, 7);
+                animacionEntrada(m6, 'default', .5, 7);
+                animacionEntrada(m7, 'default', .5, 7);
+                animacionEntrada(m8, 'default', .5, 7);
+                animacionEntrada(m9, 'default', .5, 7);
+                animacionEntrada(m10, 'default', .5, 7);
+                animacionEntrada(m11, 'default', .5, 7);
+                animacionEntrada(m12, 'default', .5, 7);
             }
 
+            function memorama(){
+                $.each(candados, function(){
+                    $(this).click(function(){
+                        cartasAbiertas++;
+                        
+
+                        if(cartasAbiertas == 1){
+                            candadoID1 = $(this).attr('id');
+                            candado1 = $(`#${candadoID1}`);
+                            candado1.css('opacity', '0');
+                            console.log(candado1);
+                            console.log(`Abierta ${cartasAbiertas}`);
+                            par1 = $(this).data('card');
+                        }
+                        else if(cartasAbiertas == 2){
+                            candadoID2 = $(this).attr('id');
+                            candado2 = $(`#${candadoID2}`);
+                            candado2.css('opacity', '0');
+                            console.log(candado2);
+                            console.log(`Abierta ${cartasAbiertas}`);
+                            cartasAbiertas = 0;
+                            par2 = $(this).data('card');
+                            
+                            if(par1 == par2){
+                                audio[2].play();
+                                bien();
+                                console.log('Correctas');
+                            }
+                            else{
+                                audio[3].play()
+                                mal();
+                                console.log('Incorrectas');
+                            }
+                        }
+                    });
+                });
+            }
+
+            function bien(){
+                candado1.css('display', 'none');
+                candado2.css('display', 'none');
+                paresEncontrados ++;
+                console.log(`Pares encontrados ${paresEncontrados}`);
+
+                if(paresEncontrados == 6){
+                    retroP();
+                }
+            }
+
+            function mal(){
+                setTimeout(()=>{
+                    candado1.css('opacity', '1');
+                    candado2.css('opacity', '1');
+                }, 1000);
+            }
+
+            function retroP(){
+                aplicacion.reproducirAudio(audio[1], finalPagina, 3000);
+                animacionEntrada(retro, 'arriba-abajo', 1, 3);
+            }
+
+
             function finalPagina(){
-                
+                aplicacion.terminaPantalla();
             }
         });
     </script>
