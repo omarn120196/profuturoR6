@@ -124,6 +124,7 @@
                
                 animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
                 animacionEntrada(info01, 'arriba-abajo', 1, 1);
+                animacionEntrada(info02, 'arriba-abajo', 1, 1.5);
                 //animacionEntrada(robot, 'arriba-abajo', 1, 1);
                 // setTimeout(() => {
                 //     flotar(robot, 'i');
@@ -139,13 +140,12 @@
                 //animacionSalida(robot, 'default', .5);
 
                 animacionEntrada(drag1, 'arriba-abajo', 1, 1);
-                animacionEntrada(drag2, 'arriba-abajo', 1, 1.5);
-                animacionEntrada(drag3, 'arriba-abajo', 1, 2);
-                animacionEntrada(drag4, 'arriba-abajo', 1, 2.5);
-              
+                animacionEntrada(drag2, 'arriba-abajo', 1, 1);
+                animacionEntrada(drag3, 'arriba-abajo', 1, 1);
+                animacionEntrada(drag4, 'arriba-abajo', 1, 1);            
 
                 
-               animacionEntrada(info02, 'arriba-abajo', 1, 1.5);
+               
                               
 
                 animacionEntrada(drop1, 'default', 1, 1);
@@ -244,7 +244,7 @@
                                siguiente.hide(); 
                              animacionEntrada(retroBien, 'izquierda-derecha', 1, 1);
                              aplicacion.reproducirAudio(audio[1], aplicacion.terminaPantalla, 2000);
-
+                             aplicacion.terminaPantalla();
 
 
                            }else{
