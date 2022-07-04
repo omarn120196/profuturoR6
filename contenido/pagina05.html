@@ -32,10 +32,6 @@
     <img class="elementos" id="pregunta5" src="./img/pagina05/pregunta05.png" data-posX="100" data-posY="200" alt="">
     <img class="elementos" id="v5" data-respuesta="bien" src="./img/pagina05/btnVerdadero.png" data-posX="200" data-posY="400" alt="">
     <img class="elementos" id="f5" data-respuesta="mal" src="./img/pagina05/btnFalso.png" data-posX="600" data-posY="400" alt="">
-    
-    <img class="elementos" id="pregunta6" src="./img/pagina05/pregunta06.png" data-posX="100" data-posY="200" alt="">
-    <img class="elementos" id="v6" data-respuesta="bien" src="./img/pagina05/btnVerdadero.png" data-posX="200" data-posY="400" alt="">
-    <img class="elementos" id="f6" data-respuesta="mal" src="./img/pagina05/btnFalso.png" data-posX="600" data-posY="400" alt="">
 
     <img class="elementos" id="retroPositiva" src="./img/pagina05/retroPositiva.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="retroNegativa" src="./img/pagina05/retroNegativa.png" data-posX="0" data-posY="0" alt="">
@@ -327,64 +323,13 @@
                         resV.remove();
                         resF.remove();
 
-                        verPregunta6();
-                    }, 4000)
-                }
-            }
-
-            function verPregunta6() {
-                const pregunta = $('#pregunta6');
-                const resV = $('#v6');
-                const resF = $('#f6');
-
-                resV.css('cursor', 'pointer');
-                resF.css('cursor', 'pointer');
-
-                animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
-                animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(resF, 'derecha-izquierda', 1, 2);
-
-                resV.click(function () {
-                    verificar(resV, 1);
-                });
-
-                resF.click(function () {
-                    verificar(resF, 2);
-                });
-
-                function verificar(respuesta, inciso) {
-                    const evaluar = respuesta.data('respuesta');
-
-                    if (evaluar == 'bien') {
-                        aplicacion.reproducirAudio(audio[3], ocultarPregunta, 1000);
-                        puntos++;
-                        console.log(puntos);
-                    }
-                    else {
-                        aplicacion.reproducirAudio(audio[4], ocultarPregunta, 1000);
-                        console.log(puntos);
-                    }
-                }
-
-                function ocultarPregunta() {
-                    animacionSalida(pregunta, 'abajo-arriba', 1, .5);
-                    animacionSalida(resV, 'derecha-izquierda', 1, 1.5);
-                    animacionSalida(resF, 'derecha-izquierda', 1, 2);
-
-
-                    setTimeout(() => {
-
-                        pregunta.remove();
-                        resV.remove();
-                        resF.remove();
-
                         evaluar();
                     }, 4000)
                 }
             }
 
             function evaluar(){
-                if(puntos == 6){
+                if(puntos == 5){
                     aplicacion.reproducirAudio(audio[1], terminaPagina, 1000);
                     animacionEntrada(retroPositiva, 'arriba-abajo', 1, .8);
 
