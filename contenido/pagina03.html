@@ -144,13 +144,15 @@
             function iniciarPagina() {
                
                 animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
-                ejercicioPag07();
+                //ejercicioPag07();
                 //animacionEntrada(robot, 'arriba-abajo', 1, 1);
                 // setTimeout(() => {
                 //     flotar(robot, 'i');
                 //     hablar(robot, 'i');
                 // }, 2000);
-
+                 aplicacion.reproducirAudio(audio[0], ejercicioPag07, 1000);
+                  animacionEntrada(info01, 'arriba-abajo', 1, 1);
+                animacionEntrada(info02, 'arriba-abajo', 1, 1.5);
             }
 
             
@@ -172,8 +174,7 @@
                 animacionEntrada(drag11, 'arriba-abajo', 1, 3.5);
                 animacionEntrada(drag12, 'arriba-abajo', 1, 3.5);
 
-                animacionEntrada(info01, 'arriba-abajo', 1, 1);
-                animacionEntrada(info02, 'arriba-abajo', 1, 1.5);
+               
                 // animacionEntrada(info03, 'arriba-abajo', 1, 2);
                 
 
@@ -257,7 +258,7 @@
 
                var res_dragActivoSubstr = "";
 
-                   if (contador1 >= 10) {
+                   if (contador1 >= 8) {
                        parpadea(botonValidar);
                        
                     }
@@ -286,7 +287,7 @@
                     //   revert: false,
                     // });
                   }
-                  if((dragSelect==11) || (dragSelect==12)){
+                  if((dragSelect==11) || (dragSelect==12) || (dragSelect==2) || (dragSelect==5)){
                     aciertos--;
                     console.log("tengo restados : " + aciertos+ "aciertos le reste");
                   }
@@ -312,11 +313,11 @@
                      console.log("tengo: " + aciertos+ "aciertos validados");
 
                       if (bloque1==true) {
-                              if (aciertos == 10) {                       
+                              if (aciertos == 8) {                       
                              siguiente.hide(); 
                              animacionEntrada(retroBien, 'izquierda-derecha', 1, 1);
                              aplicacion.reproducirAudio(audio[1], aplicacion.terminaPantalla, 2000);
-
+                             aplicacion.terminaPantalla();
 
 
                            }else{
