@@ -37,12 +37,12 @@
     <div class="elementos drop boton" id="drop11" data-id="11" data-posX="218.554" data-posY="330"    style="width:190px;  height:211.939px;"></div>
     <div class="elementos drop boton" id="drop12" data-id="12" data-posX="408.039" data-posY="330"    style="width:190px;  height:211.939px;"></div>
 
-    <img class="elementos drag" id="drag1" data-id="1" src="./img/pagina03/drag1.png" data-posX="31.65 " data-posY="205.582" alt="">
-    <img class="elementos drag" id="drag2" data-id="2" src="./img/pagina03/drag2.png" data-posX="126.654 " data-posY="207.322" alt="">
-    <img class="elementos drag" id="drag3" data-id="3" src="./img/pagina03/drag3.png" data-posX="236.335 " data-posY="205.582 " alt="">
-    <img class="elementos drag" id="drag4" data-id="4" src="./img/pagina03/drag4.png" data-posX="364.949" data-posY="207.322" alt="">
-    <img class="elementos drag" id="drag5" data-id="5" src="./img/pagina03/drag5.png" data-posX="130.84 " data-posY="302.068" alt="">
-    <img class="elementos drag" id="drag6" data-id="6" src="./img/pagina03/drag6.png" data-posX="249.73 " data-posY="303.807" alt="">
+    <img class="elementos drag" id="drag1" data-id="1" src="./img/pagina03/drag1.png" data-posX="31.65 "   data-posY="210" alt="">
+    <img class="elementos drag" id="drag2" data-id="2" src="./img/pagina03/drag2.png" data-posX="126.654 " data-posY="212" alt="">
+    <img class="elementos drag" id="drag3" data-id="3" src="./img/pagina03/drag3.png" data-posX="236.335 " data-posY="210" alt="">
+    <img class="elementos drag" id="drag4" data-id="4" src="./img/pagina03/drag4.png" data-posX="364.949"  data-posY="212" alt="">
+    <img class="elementos drag" id="drag5" data-id="5" src="./img/pagina03/drag5.png" data-posX="130.84 "  data-posY="302.068" alt="">
+    <img class="elementos drag" id="drag6" data-id="6" src="./img/pagina03/drag6.png" data-posX="249.73 "  data-posY="303.807" alt="">
 
     <img class="elementos drag" id="drag7" data-id="7" src="./img/pagina03/drag7.png" data-posX="10 " data-posY="399.626" alt="">
     <img class="elementos drag" id="drag8" data-id="8" src="./img/pagina03/drag8.png" data-posX="260" data-posY="401.366 " alt="">
@@ -291,7 +291,17 @@
                     aciertos--;
                     console.log("tengo restados : " + aciertos+ "aciertos le reste");
                   }
-                    }
+
+                  if (dragSelect==11) {
+                     dragActivo.draggable({
+                      revert: true,
+                    });
+                  }
+
+
+
+
+                    }// termina  verificar
                   //parpadea(botonValidar);  
                 //   if (dragSelect === dropCorrespondiente) {
                     
