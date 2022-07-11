@@ -43,7 +43,7 @@ modoDesarrollador();
 
 //Redimensionar tamaño------------------------------------------------------------
 redimensionar();
-let intervalo; 
+let intervalo;
 $(window).resize(function(){
     clearTimeout(intervalo);
     intervalo = setTimeout(escalar, 100);
