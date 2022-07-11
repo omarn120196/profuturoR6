@@ -187,15 +187,15 @@
                         let dragActivo = $(`#drag${dragSelect}`);
                         let dropActivo = $(`#drop${dropCorrespondiente}`);
 
-                        setTimeout(() => {
-                            dragActivo.remove();
-                        }, 500);
+                        // setTimeout(() => {
+                        //     dragActivo.remove();
+                        // }, 500);
 
-                        // dragActivo.draggable({
-                        //     revert: true,
-                        // });
+                        dragActivo.draggable({
+                            revert: true,
+                        });
 
-                        // dragActivo.draggable("disable");
+                        dragActivo.draggable("disable");
 
                         // dragActivo.css({
                         //     cursor: 'default'
