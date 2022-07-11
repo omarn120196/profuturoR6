@@ -147,28 +147,22 @@
                             candadoID1 = $(this).attr('id');
                             candado1 = $(`#${candadoID1}`);
                             candado1.css('opacity', '0');
-                            console.log(candado1);
-                            console.log(`Abierta ${cartasAbiertas}`);
                             par1 = $(this).data('card');
                         }
                         else if(cartasAbiertas == 2){
                             candadoID2 = $(this).attr('id');
                             candado2 = $(`#${candadoID2}`);
                             candado2.css('opacity', '0');
-                            console.log(candado2);
-                            console.log(`Abierta ${cartasAbiertas}`);
                             cartasAbiertas = 0;
                             par2 = $(this).data('card');
                             
                             if(par1 == par2){
                                 audio[2].play();
                                 bien();
-                                console.log('Correctas');
                             }
                             else{
                                 audio[3].play()
                                 mal();
-                                console.log('Incorrectas');
                             }
                         }
                     });
@@ -179,7 +173,6 @@
                 candado1.css('display', 'none');
                 candado2.css('display', 'none');
                 paresEncontrados ++;
-                console.log(`Pares encontrados ${paresEncontrados}`);
 
                 if(paresEncontrados == 6){
                     retroP();
