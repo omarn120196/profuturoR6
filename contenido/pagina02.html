@@ -145,7 +145,6 @@
                     revert: true,
                     start: function (event, ui) {
                         dragSelect = $(this).data('id');
-                        console.log(dragSelect);
                     }
                 });
 
@@ -198,7 +197,7 @@
                 animacionEntrada(retroBuena, 'arriba-abajo', 1, 1);
 
                 function terminaPagina(){
-                    aplicacion.nextPag();
+                    aplicacion.terminaPantalla();
                 }
             }
 
