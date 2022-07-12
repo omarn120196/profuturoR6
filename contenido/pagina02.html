@@ -139,7 +139,7 @@
                 let dropCorrespondiente;
 
                 let aciertos = 0;
-                let disponibles = 8;
+                let dragColocados = 0;
 
                 elementosDrag.draggable({
                     revert: true,
@@ -160,53 +160,27 @@
 
                 function verificarLugar() {
 
+                    let dragActivo = $(`#drag${dragSelect}`);
+                    let dropActivo = $(`#drop${dropCorrespondiente}`);
+                    dragActivo.draggable({
+                        revert: false,
+                    });
+
+                    dragActivo.draggable("disable");
+
+                    dragActivo.css({
+                        cursor: 'default'
+                    });
+
+                    dragColocados++;
+                    console.log(`Colocados: ${dragColocados}`);
+
                     if (dragSelect === dropCorrespondiente) {
-                        let dragActivo = $(`#drag${dragSelect}`);
-                        let dropActivo = $(`#drop${dropCorrespondiente}`);
-
-                        dragActivo.draggable({
-                            revert: false,
-                        });
-
-                        dragActivo.draggable("disable");
-
-                        dragActivo.css({
-                            cursor: 'default'
-                        });
-
                         aciertos++;
-                        disponibles --;
-                        console.log("aciertos:", aciertos);
-                        console.log("disponibles:", disponibles);
+                    }
 
-                        if (disponibles === 0){
-                            evaluar();
-                        }
-
-                    } else {
-                        let dragActivo = $(`#drag${dragSelect}`);
-                        let dropActivo = $(`#drop${dropCorrespondiente}`);
-
-                        // setTimeout(() => {
-                        //     dragActivo.remove();
-                        // }, 500);
-
-                        dragActivo.draggable({
-                            revert: true,
-                        });
-
-                        dragActivo.draggable("disable");
-
-                        // dragActivo.css({
-                        //     cursor: 'default'
-                        // });
-
-                        disponibles--;
-                        console.log("disponibles:", disponibles);
-
-                        if (disponibles === 0) {
-                            evaluar();
-                        }
+                    if(dragColocados === 8){
+                        evaluar();
                     }
                 }
 
