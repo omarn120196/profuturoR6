@@ -52,6 +52,11 @@
                 new Audio('./audios/R6_05_3.mp3'),
                 new Audio('./audios/s_bien.mp3'), //3
                 new Audio('./audios/s_mal.mp3'), //4
+                new Audio('./audios/R6_05_4.mp3'),
+                new Audio('./audios/R6_05_5.mp3'),
+                new Audio('./audios/R6_05_6.mp3'),
+                new Audio('./audios/R6_05_7.mp3'),
+                new Audio('./audios/R6_05_8.mp3'),
             ]
 
             //Crear Variables-----------------------------------------------------
@@ -81,17 +86,20 @@
                 resV.css('cursor', 'pointer');
                 resF.css('cursor', 'pointer');
 
+                aplicacion.reproducirAudio(audio[5], clicRespuesta, 1000);
                 animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
                 animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
                 animacionEntrada(resF, 'derecha-izquierda', 1, 2);
 
-                resV.click(function () {
-                    verificar(resV, 1);
-                });
+                function clicRespuesta(){
+                    resV.click(function () {
+                        verificar(resV, 1);
+                    });
 
-                resF.click(function () {
-                    verificar(resF, 2);
-                });
+                    resF.click(function () {
+                        verificar(resF, 2);
+                    });
+                }
 
                 function verificar(respuesta, inciso) {
                     const evaluar = respuesta.data('respuesta');
@@ -130,17 +138,20 @@
                 resV.css('cursor', 'pointer');
                 resF.css('cursor', 'pointer');
 
+                aplicacion.reproducirAudio(audio[6], clicRespuesta, 1000);
                 animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
                 animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
                 animacionEntrada(resF, 'derecha-izquierda', 1, 2);
 
-                resV.click(function () {
-                    verificar(resV, 1);
-                });
+                function clicRespuesta(){
+                    resV.click(function () {
+                        verificar(resV, 1);
+                    });
 
-                resF.click(function () {
-                    verificar(resF, 2);
-                });
+                    resF.click(function () {
+                        verificar(resF, 2);
+                    });
+                }
 
                 function verificar(respuesta, inciso) {
                     const evaluar = respuesta.data('respuesta');
@@ -179,17 +190,20 @@
                 resV.css('cursor', 'pointer');
                 resF.css('cursor', 'pointer');
 
+                aplicacion.reproducirAudio(audio[7], clicRespuesta, 1000);
                 animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
                 animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
                 animacionEntrada(resF, 'derecha-izquierda', 1, 2);
 
-                resV.click(function () {
-                    verificar(resV, 1);
-                });
+                function clicRespuesta(){
+                    resV.click(function () {
+                        verificar(resV, 1);
+                    });
 
-                resF.click(function () {
-                    verificar(resF, 2);
-                });
+                    resF.click(function () {
+                        verificar(resF, 2);
+                    });
+                }
 
                 function verificar(respuesta, inciso) {
                     const evaluar = respuesta.data('respuesta');
@@ -228,18 +242,21 @@
                 resV.css('cursor', 'pointer');
                 resF.css('cursor', 'pointer');
 
+                aplicacion.reproducirAudio(audio[8], clicRespuesta, 1000);
                 animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
                 animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
                 animacionEntrada(resF, 'derecha-izquierda', 1, 2);
 
-                resV.click(function () {
-                    verificar(resV, 1);
-                });
+                function clicRespuesta(){
+                    resV.click(function () {
+                        verificar(resV, 1);
+                    });
 
-                resF.click(function () {
-                    verificar(resF, 2);
-                });
-
+                    resF.click(function () {
+                        verificar(resF, 2);
+                    });
+                }
+                
                 function verificar(respuesta, inciso) {
                     const evaluar = respuesta.data('respuesta');
 
@@ -277,18 +294,21 @@
                 resV.css('cursor', 'pointer');
                 resF.css('cursor', 'pointer');
 
+                aplicacion.reproducirAudio(audio[9], clicRespuesta, 1000);
                 animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
                 animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
                 animacionEntrada(resF, 'derecha-izquierda', 1, 2);
 
-                resV.click(function () {
-                    verificar(resV, 1);
-                });
+                function clicRespuesta(){
+                    resV.click(function () {
+                        verificar(resV, 1);
+                    });
 
-                resF.click(function () {
-                    verificar(resF, 2);
-                });
-
+                    resF.click(function () {
+                        verificar(resF, 2);
+                    });
+                }
+                
                 function verificar(respuesta, inciso) {
                     const evaluar = respuesta.data('respuesta');
 
