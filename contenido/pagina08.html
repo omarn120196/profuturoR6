@@ -26,18 +26,18 @@
     <img class="elementos" id="m12" src="./img/pagina08/m5.png" data-posX="852" data-posY="327" alt="">
 
     <!-- Candados -->
-    <img class="elementos candados" data-card="1" data-numero="1" id="c1" src="./img/pagina08/c1.png" data-posX="44" data-posY="208" alt="">
-    <img class="elementos candados" data-card="3" data-numero="2" id="c2" src="./img/pagina08/c1.png" data-posX="191" data-posY="208" alt="">
-    <img class="elementos candados" data-card="6" data-numero="3" id="c3" src="./img/pagina08/c1.png" data-posX="338" data-posY="208" alt="">
-    <img class="elementos candados" data-card="3" data-numero="4" id="c4" src="./img/pagina08/c1.png" data-posX="485" data-posY="208" alt="">
-    <img class="elementos candados" data-card="2" data-numero="5" id="c5" src="./img/pagina08/c1.png" data-posX="632" data-posY="208" alt="">
-    <img class="elementos candados" data-card="6" data-numero="6" id="c6" src="./img/pagina08/c1.png" data-posX="779" data-posY="208" alt="">
-    <img class="elementos candados" data-card="4" data-numero="7" id="c7" src="./img/pagina08/c1.png" data-posX="117" data-posY="327" alt="">
-    <img class="elementos candados" data-card="5" data-numero="8" id="c8" src="./img/pagina08/c1.png" data-posX="264" data-posY="327" alt="">
-    <img class="elementos candados" data-card="2" data-numero="9" id="c9" src="./img/pagina08/c1.png" data-posX="411" data-posY="327" alt="">
-    <img class="elementos candados" data-card="4" data-numero="10" id="c10" src="./img/pagina08/c1.png" data-posX="558" data-posY="327" alt="">
-    <img class="elementos candados" data-card="1" data-numero="11" id="c11" src="./img/pagina08/c1.png" data-posX="705" data-posY="327" alt="">
-    <img class="elementos candados" data-card="5" data-numero="12" id="c12" src="./img/pagina08/c1.png" data-posX="852" data-posY="327" alt="">
+    <img class="elementos candados" data-card="1" id="c1" src="./img/pagina08/c1.png" data-posX="44" data-posY="208" alt="">
+    <img class="elementos candados" data-card="3" id="c2" src="./img/pagina08/c1.png" data-posX="191" data-posY="208" alt="">
+    <img class="elementos candados" data-card="6" id="c3" src="./img/pagina08/c1.png" data-posX="338" data-posY="208" alt="">
+    <img class="elementos candados" data-card="3" id="c4" src="./img/pagina08/c1.png" data-posX="485" data-posY="208" alt="">
+    <img class="elementos candados" data-card="2" id="c5" src="./img/pagina08/c1.png" data-posX="632" data-posY="208" alt="">
+    <img class="elementos candados" data-card="6" id="c6" src="./img/pagina08/c1.png" data-posX="779" data-posY="208" alt="">
+    <img class="elementos candados" data-card="4" id="c7" src="./img/pagina08/c1.png" data-posX="117" data-posY="327" alt="">
+    <img class="elementos candados" data-card="5" id="c8" src="./img/pagina08/c1.png" data-posX="264" data-posY="327" alt="">
+    <img class="elementos candados" data-card="2" id="c9" src="./img/pagina08/c1.png" data-posX="411" data-posY="327" alt="">
+    <img class="elementos candados" data-card="4" id="c10" src="./img/pagina08/c1.png" data-posX="558" data-posY="327" alt="">
+    <img class="elementos candados" data-card="1" id="c11" src="./img/pagina08/c1.png" data-posX="705" data-posY="327" alt="">
+    <img class="elementos candados" data-card="5" id="c12" src="./img/pagina08/c1.png" data-posX="852" data-posY="327" alt="">
 
     <img class="elementos"id="retro" src="./img/pagina08/retro.png" data-posX="0" data-posY="0" alt="">
 
@@ -53,6 +53,12 @@
             const audio = [
                 new Audio('./audios/R6_08_1.mp3'),
                 new Audio('./audios/R6_08_2.mp3'),
+                new Audio('./audios/R6_08_3.mp3'),
+                new Audio('./audios/R6_08_4.mp3'),
+                new Audio('./audios/R6_08_5.mp3'),
+                new Audio('./audios/R6_08_6.mp3'),
+                new Audio('./audios/R6_08_7.mp3'),
+                new Audio('./audios/R6_08_8.mp3'),
                 new Audio('./audios/s_bien.mp3'),
                 new Audio('./audios/s_mal.mp3'),
             ]
@@ -102,6 +108,8 @@
             let candado2;
             let candadoID1;
             let candadoID2;
+
+            let audioActual;
             
             //Iniciar contenido de la página--------------------------------------
             cargando(iniciarPagina);
@@ -157,11 +165,32 @@
                             par2 = $(this).data('card');
                             
                             if(par1 == par2){
-                                audio[2].play();
+                                
+                                switch(par1){
+                                    case 1:
+                                    audio[7].play();
+                                    break;
+                                    case 2:
+                                    audio[4].play();
+                                    break;
+                                    case 3:
+                                    audio[3].play();
+                                    break;
+                                    case 4:
+                                    audio[2].play();
+                                    break;
+                                    case 5:
+                                    audio[6].play();
+                                    break;
+                                    case 6:
+                                    audio[5].play();
+                                    break;
+                                    default: break;
+                                }
                                 bien();
                             }
                             else{
-                                audio[3].play()
+                                audio[9].play()
                                 mal();
                             }
                         }
@@ -187,8 +216,8 @@
             }
 
             function retroP(){
-                aplicacion.reproducirAudio(audio[1], finalPagina, 3000);
-                animacionEntrada(retro, 'arriba-abajo', 1, 3);
+                aplicacion.reproducirAudio(audio[1], finalPagina, 5000);
+                animacionEntrada(retro, 'arriba-abajo', 1, 5);
             }
 
 
