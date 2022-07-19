@@ -22,6 +22,13 @@
     <img class="elementos" id="base" src="./img/pagina04/base.png" data-posX="0" data-posY="0" alt="">
 
     <!-- Cancelación -->
+    <img class="elementos" id="vacia1_1" src="./img/pagina04/vacia.png" data-posX="417" data-posY="352" alt="">
+    <img class="elementos" id="vacia1_2" src="./img/pagina04/vacia.png" data-posX="470" data-posY="352" alt="">
+    <img class="elementos" id="vacia1_3" src="./img/pagina04/vacia.png" data-posX="523" data-posY="352" alt="">
+    <img class="elementos" id="vacia1_4" src="./img/pagina04/vacia.png" data-posX="577" data-posY="352" alt="">
+    <img class="elementos" id="vacia1_5" src="./img/pagina04/vacia.png" data-posX="683" data-posY="352" alt="">
+    <img class="elementos" id="vacia1_6" src="./img/pagina04/vacia.png" data-posX="737" data-posY="352" alt="">
+
     <img class="elementos" id="cancelacionA" src="./img/pagina04/cancelacionA.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="cancelacionN" src="./img/pagina04/cancelacionN.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="cancelacionC" src="./img/pagina04/cancelacionC.png" data-posX="0" data-posY="0" alt="">
@@ -35,6 +42,13 @@
     <img class="elementos" id="cabeza1" src="./img/pagina04/cabeza.png" data-posX="0" data-posY="0" alt="">
 
     <!-- Rectificación -->
+    <img class="elementos" id="vacia2_1" src="./img/pagina04/vacia2.png" data-posX="408" data-posY="360" alt="">
+    <img class="elementos" id="vacia2_2" src="./img/pagina04/vacia2.png" data-posX="500" data-posY="360" alt="">
+    <img class="elementos" id="vacia2_3" src="./img/pagina04/vacia2.png" data-posX="546" data-posY="360" alt="">
+    <img class="elementos" id="vacia2_4" src="./img/pagina04/vacia2.png" data-posX="638" data-posY="360" alt="">
+    <img class="elementos" id="vacia2_5" src="./img/pagina04/vacia2.png" data-posX="730" data-posY="360" alt="">
+    <img class="elementos" id="vacia2_6" src="./img/pagina04/vacia2.png" data-posX="776" data-posY="360" alt="">
+
     <img class="elementos" id="rectificacionA" src="./img/pagina04/rectificacionA.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="rectificacionC" src="./img/pagina04/rectificacionC.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="rectificacionF" src="./img/pagina04/rectificacionF.png" data-posX="0" data-posY="0" alt="">
@@ -49,6 +63,11 @@
     <img class="elementos" id="cabeza2" src="./img/pagina04/cabeza.png" data-posX="0" data-posY="0" alt="">
 
     <!-- Oposición -->
+    <img class="elementos" id="vacia3_1" src="./img/pagina04/vacia.png" data-posX="457" data-posY="352" alt="">
+    <img class="elementos" id="vacia3_2" src="./img/pagina04/vacia.png" data-posX="565" data-posY="352" alt="">
+    <img class="elementos" id="vacia3_3" src="./img/pagina04/vacia.png" data-posX="618" data-posY="352" alt="">
+    <img class="elementos" id="vacia3_4" src="./img/pagina04/vacia.png" data-posX="672" data-posY="352" alt="">
+
     <img class="elementos" id="oposicionI" src="./img/pagina04/oposicionI.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="oposicionO" src="./img/pagina04/oposicionO.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="oposicionS" src="./img/pagina04/oposicionS.png" data-posX="0" data-posY="0" alt="">
@@ -61,6 +80,12 @@
     <img class="elementos" id="cabeza3" src="./img/pagina04/cabeza.png" data-posX="0" data-posY="0" alt="">
 
     <!-- Acceso -->
+    <img class="elementos" id="vacia4_1" src="./img/pagina04/vacia4.png" data-posX="535" data-posY="352" alt="">
+    <img class="elementos" id="vacia4_2" src="./img/pagina04/vacia4.png" data-posX="589" data-posY="352" alt="">
+    <img class="elementos" id="vacia4_3" src="./img/pagina04/vacia4.png" data-posX="695" data-posY="352" alt="">
+    <img class="elementos" id="vacia4_4" src="./img/pagina04/vacia4.png" data-posX="749" data-posY="352" alt="">
+    <img class="elementos" id="vacia4_5" src="./img/pagina04/vacia4.png" data-posX="802" data-posY="352" alt="">
+
     <img class="elementos" id="accesoA" src="./img/pagina04/accesoA.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="accesoC" src="./img/pagina04/accesoC.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="accesoE" src="./img/pagina04/accesoE.png" data-posX="0" data-posY="0" alt="">
@@ -89,7 +114,7 @@
     <!-- Script de la página -->
     <script type="module">
         import {aplicacion} from './js/app.js';
-        import {animacionEntrada, parpadea, animacionSalida} from './js/animaciones.js';
+        import {animacionEntrada, parpadea, animacionSalida, pararParpadear} from './js/animaciones.js';
         import {cargando} from './js/funciones.js';
 
         jQuery(function($){
@@ -166,6 +191,12 @@
             const cancelacionN = $('#cancelacionN');
             const cancelacionL = $('#cancelacionL');
             const cancelacionC = $('#cancelacionC');
+            const vacia1_1 = $('#vacia1_1');
+            const vacia1_2 = $('#vacia1_2');
+            const vacia1_3 = $('#vacia1_3');
+            const vacia1_4 = $('#vacia1_4');
+            const vacia1_5 = $('#vacia1_5');
+            const vacia1_6 = $('#vacia1_6');
 
             let erroresrectificacion = 0;
             let letrasrectificacion = 0;
@@ -175,6 +206,12 @@
             const rectificacionF = $('#rectificacionF');
             const rectificacionR = $('#rectificacionR');
             const rectificacionT = $('#rectificacionT');
+            const vacia2_1 = $('#vacia2_1');
+            const vacia2_2 = $('#vacia2_2');
+            const vacia2_3 = $('#vacia2_3');
+            const vacia2_4 = $('#vacia2_4');
+            const vacia2_5 = $('#vacia2_5');
+            const vacia2_6 = $('#vacia2_6');
 
             let erroresoposicion = 0;
             let letrasoposicion = 0;
@@ -182,6 +219,10 @@
             const oposicionI = $('#oposicionI');
             const oposicionO = $('#oposicionO');
             const oposicionS = $('#oposicionS');
+            const vacia3_1 = $('#vacia3_1');
+            const vacia3_2 = $('#vacia3_2');
+            const vacia3_3 = $('#vacia3_3');
+            const vacia3_4 = $('#vacia3_4');
 
             let erroresacceso = 0;
             let letrasacceso = 0;
@@ -191,6 +232,11 @@
             const accesoE = $('#accesoE');
             const accesoO = $('#accesoO');
             const accesoS = $('#accesoS');
+            const vacia4_1 = $('#vacia4_1');
+            const vacia4_2 = $('#vacia4_2');
+            const vacia4_3 = $('#vacia4_3');
+            const vacia4_4 = $('#vacia4_4');
+            const vacia4_5 = $('#vacia4_5');
 
             let aciertos = 0;
             
@@ -203,6 +249,12 @@
                 animacionEntrada(instrucciones, 'derecha-izquierda', 1);
                 animacionEntrada(frase1, 'izquierda-derecha', 1);
                 animacionEntrada(casillas1, 'arriba-abajo', 1);
+                animacionEntrada(vacia1_1, 'arriba-abajo', 1);
+                animacionEntrada(vacia1_2, 'arriba-abajo', 1);
+                animacionEntrada(vacia1_3, 'arriba-abajo', 1);
+                animacionEntrada(vacia1_4, 'arriba-abajo', 1);
+                animacionEntrada(vacia1_5, 'arriba-abajo', 1);
+                animacionEntrada(vacia1_6, 'arriba-abajo', 1);
                 animacionEntrada(marco, 'arriba-abajo', 1);
                 animacionEntrada(base, 'arriba-abajo', 1);
             }
@@ -212,24 +264,36 @@
             }
 
             function completar1(){
-                
+                parpadea(vacia1_1);
+                parpadea(vacia1_2);
+                parpadea(vacia1_3);
+                parpadea(vacia1_4);
+                parpadea(vacia1_5);
+                parpadea(vacia1_6);
+
                 $(document).keydown(function(event) {
                 
                     if(cancelacion){
                         if(String.fromCharCode(event.which) === 'A'){
                             animacionEntrada(cancelacionA, 'default', .5);
+                            pararParpadear(vacia1_2);
+                            pararParpadear(vacia1_6);
                             letrascancelacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'C'){
                             animacionEntrada(cancelacionC, 'default', .5);
+                            pararParpadear(vacia1_1);
+                            pararParpadear(vacia1_4);
                             letrascancelacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'N'){
                             animacionEntrada(cancelacionN, 'default', .5);
+                            pararParpadear(vacia1_3);
                             letrascancelacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'L'){
                             animacionEntrada(cancelacionL, 'default', .5);
+                            pararParpadear(vacia1_5);
                             letrascancelacion++;
                         }
                         else{
@@ -274,6 +338,12 @@
                             animacionSalida(cancelacionC, 'default', 1, 3);
                             animacionSalida(cancelacionL, 'default', 1, 3);
                             animacionSalida(cancelacionN, 'default', 1, 3);
+                            animacionSalida(vacia1_1, 'default', 1, 3);
+                            animacionSalida(vacia1_2, 'default', 1, 3);
+                            animacionSalida(vacia1_3, 'default', 1, 3);
+                            animacionSalida(vacia1_4, 'default', 1, 3);
+                            animacionSalida(vacia1_5, 'default', 1, 3);
+                            animacionSalida(vacia1_6, 'default', 1, 3);
                             if(letrascancelacion == 4){
                                 aciertos++;
                                 
@@ -288,6 +358,22 @@
                 cancelacion = false;
                 animacionEntrada(frase2, 'izquierda-derecha', 1, 4);
                 animacionEntrada(casillas2, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia2_1, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia2_2, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia2_3, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia2_4, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia2_5, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia2_6, 'arriba-abajo', 1, 4);
+                
+                setTimeout(()=>{
+                    parpadea(vacia2_1);
+                    parpadea(vacia2_2);
+                    parpadea(vacia2_3);
+                    parpadea(vacia2_4);
+                    parpadea(vacia2_5);
+                    parpadea(vacia2_6);
+                }, 5000);
+
                 $(document).off('keydown');
                 completar2();
             }
@@ -297,22 +383,28 @@
                 
                     if(rectificacion){
                         if(String.fromCharCode(event.which) === 'A'){
+                            pararParpadear(vacia2_6);
                             animacionEntrada(rectificacionA, 'default', .5);
                             letrasrectificacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'C'){
+                            pararParpadear(vacia2_2);
+                            pararParpadear(vacia2_5);
                             animacionEntrada(rectificacionC, 'default', .5);
                             letrasrectificacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'F'){
+                            pararParpadear(vacia2_4);
                             animacionEntrada(rectificacionF, 'default', .5);
                             letrasrectificacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'R'){
                             animacionEntrada(rectificacionR, 'default', .5);
+                            pararParpadear(vacia2_1);
                             letrasrectificacion++;
                         }
                         else if(String.fromCharCode(event.which) === 'T'){
+                            pararParpadear(vacia2_3);
                             animacionEntrada(rectificacionT, 'default', .5);
                             letrasrectificacion++;
                         }
@@ -359,6 +451,12 @@
                             animacionSalida(rectificacionF, 'default', 1, 3);
                             animacionSalida(rectificacionR, 'default', 1, 3);
                             animacionSalida(rectificacionT, 'default', 1, 3);
+                            animacionSalida(vacia2_1, 'default', 1, 3);
+                            animacionSalida(vacia2_2, 'default', 1, 3);
+                            animacionSalida(vacia2_3, 'default', 1, 3);
+                            animacionSalida(vacia2_4, 'default', 1, 3);
+                            animacionSalida(vacia2_5, 'default', 1, 3);
+                            animacionSalida(vacia2_6, 'default', 1, 3);
                             if(letrasrectificacion == 5){
                                 aciertos++;
                                 
@@ -373,6 +471,16 @@
                 rectificacion = false;
                 animacionEntrada(frase3, 'izquierda-derecha', 1, 4);
                 animacionEntrada(casillas3, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia3_1, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia3_2, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia3_3, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia3_4, 'arriba-abajo', 1, 4);
+                setTimeout(()=>{
+                    parpadea(vacia3_1);
+                    parpadea(vacia3_2);
+                    parpadea(vacia3_3);
+                    parpadea(vacia3_4);
+                }, 5000);
                 $(document).off('keydown');
                 completar3();
             }
@@ -382,14 +490,18 @@
                 
                     if(oposicion){
                         if(String.fromCharCode(event.which) === 'I'){
+                            pararParpadear(vacia3_4);
                             animacionEntrada(oposicionI, 'default', .5);
                             letrasoposicion++;
                         }
                         else if(String.fromCharCode(event.which) === 'O'){
+                            pararParpadear(vacia3_1);
+                            pararParpadear(vacia3_2);
                             animacionEntrada(oposicionO, 'default', .5);
                             letrasoposicion++;
                         }
                         else if(String.fromCharCode(event.which) === 'S'){
+                            pararParpadear(vacia3_3);
                             animacionEntrada(oposicionS, 'default', .5);
                             letrasoposicion++;
                         }
@@ -434,6 +546,11 @@
                             animacionSalida(oposicionI, 'default', 1, 3);
                             animacionSalida(oposicionO, 'default', 1, 3);
                             animacionSalida(oposicionS, 'default', 1, 3);
+                            animacionSalida(vacia3_1, 'default', 1, 3);
+                            animacionSalida(vacia3_2, 'default', 1, 3);
+                            animacionSalida(vacia3_3, 'default', 1, 3);
+                            animacionSalida(vacia3_4, 'default', 1, 3);
+                            pararParpadear(vacia4_1);
                             if(letrasoposicion == 3){
                                 aciertos++
                                 
@@ -448,6 +565,18 @@
                 oposicion = false;
                 animacionEntrada(frase4, 'izquierda-derecha', 1, 4);
                 animacionEntrada(casillas4, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia4_1, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia4_2, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia4_3, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia4_4, 'arriba-abajo', 1, 4);
+                animacionEntrada(vacia4_5, 'arriba-abajo', 1, 4);
+                setTimeout(()=>{
+                    parpadea(vacia4_1);
+                    parpadea(vacia4_2);
+                    parpadea(vacia4_3);
+                    parpadea(vacia4_4);
+                    parpadea(vacia4_5);
+                }, 5000);
                 $(document).off('keydown');
                 completar4();
             }
@@ -457,22 +586,27 @@
                 
                     if(acceso){
                         if(String.fromCharCode(event.which) === 'A'){
+                            pararParpadear(vacia4_1);
                             animacionEntrada(accesoA, 'default', .5);
                             letrasacceso++;
                         }
                         else if(String.fromCharCode(event.which) === 'C'){
+                            pararParpadear(vacia4_2);
                             animacionEntrada(accesoC, 'default', .5);
                             letrasacceso++;
                         }
                         else if(String.fromCharCode(event.which) === 'E'){
+                            pararParpadear(vacia4_3);
                             animacionEntrada(accesoE, 'default', .5);
                             letrasacceso++;
                         }
                         else if(String.fromCharCode(event.which) === 'O'){
+                            pararParpadear(vacia4_5);
                             animacionEntrada(accesoO, 'default', .5);
                             letrasacceso++;
                         }
                         else if(String.fromCharCode(event.which) === 'S'){
+                            pararParpadear(vacia4_4);
                             animacionEntrada(accesoS, 'default', .5);
                             letrasacceso++;
                         }
@@ -519,6 +653,12 @@
                             animacionSalida(accesoS, 'default', 1, 3);
                             animacionSalida(accesoE, 'default', 1, 3);
                             animacionSalida(accesoO, 'default', 1, 3);
+                            animacionSalida(vacia4_1, 'default', 1, 3);
+                            animacionSalida(vacia4_2, 'default', 1, 3);
+                            animacionSalida(vacia4_3, 'default', 1, 3);
+                            animacionSalida(vacia4_4, 'default', 1, 3);
+                            animacionSalida(vacia4_5, 'default', 1, 3);
+                            
                             if(letrasacceso == 5){
                                 aciertos++;
                                 
