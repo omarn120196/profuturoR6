@@ -38,3 +38,8 @@ export const barraPorcentaje = $('.cont-progreso');
 
 //Spinner
 export const spinner = $('#spinner');
+
+//Glosario
+export const contGlosario = $('.cont-glosario');
+export const btnCerrarGlosario = $('#cerrarGlosario');
+export const btnGlosario = $('#glosario');

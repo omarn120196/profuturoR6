@@ -115,8 +115,6 @@ export function animacionSalida(elemento, direccion, tiempo, delay = 0){
 }
 
 export function parpadea(elemento, tiempo=.8, delay=0){
-    
-    
     // Hacer visible el elemento
     elemento.css({
         'display': 'block',
@@ -132,6 +130,24 @@ export function parpadea(elemento, tiempo=.8, delay=0){
         opacity: 1,
         ease: "sine.inOut"
     });
+}
 
-    
+export function pararParpadear(elemento, cursorActivo = false){
+    gsap.killTweensOf(elemento);
+    elemento.css({
+        'opacity': '1',
+        'cursor': 'default'
+    });
+
+    if(cursorActivo){
+        elemento.css({
+            'cursor': 'pointer'
+        });
+    }
+}
+
+export function eliminarAnimaciones(){
+    //Elementos dentro de las páginas
+    const elementos = $('.elementos');
+    gsap.killTweensOf(elementos);
 }
