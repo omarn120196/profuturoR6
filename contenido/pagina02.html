@@ -20,14 +20,14 @@
     <img class="elementos" id="definicion07" src="./img/pagina02/definicion07.png" data-posX="20" data-posY="430" alt="">
     <img class="elementos" id="definicion08" src="./img/pagina02/definicion08.png" data-posX="20" data-posY="480" alt="">
 
-    <div class="elementos drop" id="drop7" data-id="7" data-posX="20" data-posY="110" style="width:630px;  height:60px;"></div>
-    <div class="elementos drop" id="drop8" data-id="8" data-posX="20" data-posY="182" style="width:630px;  height:40px;"></div>
-    <div class="elementos drop" id="drop6" data-id="6" data-posX="20" data-posY="232" style="width:630px;  height:40px;"></div>
-    <div class="elementos drop" id="drop3" data-id="3" data-posX="20" data-posY="280" style="width:630px;  height:40px;"></div>
-    <div class="elementos drop" id="drop5" data-id="5" data-posX="20" data-posY="330" style="width:630px;  height:40px;"></div>
-    <div class="elementos drop" id="drop2" data-id="2" data-posX="20" data-posY="383" style="width:630px;  height:40px;"></div>
-    <div class="elementos drop" id="drop1" data-id="1" data-posX="20" data-posY="435" style="width:630px;  height:40px;"></div>
-    <div class="elementos drop" id="drop4" data-id="4" data-posX="20" data-posY="490" style="width:630px;  height:65px;"></div>
+    <div class="elementos drop" id="drop7" data-id="7" data-posX="20" data-posY="126" style="width:630px;  height:48px;"></div>
+    <div class="elementos drop" id="drop8" data-id="8" data-posX="20" data-posY="180" style="width:630px;  height:42px;"></div>
+    <div class="elementos drop" id="drop6" data-id="6" data-posX="20" data-posY="230" style="width:630px;  height:42px;"></div>
+    <div class="elementos drop" id="drop3" data-id="3" data-posX="20" data-posY="278" style="width:630px;  height:42px;"></div>
+    <div class="elementos drop" id="drop5" data-id="5" data-posX="20" data-posY="328" style="width:630px;  height:42px;"></div>
+    <div class="elementos drop" id="drop2" data-id="2" data-posX="20" data-posY="381" style="width:630px;  height:42px;"></div>
+    <div class="elementos drop" id="drop1" data-id="1" data-posX="20" data-posY="433" style="width:630px;  height:42px;"></div>
+    <div class="elementos drop" id="drop4" data-id="4" data-posX="20" data-posY="483" style="width:630px;  height:65px;"></div>
 
     <img class="elementos drag" id="drag1" data-id="1" src="./img/pagina02/drag01.png" data-posX="570" data-posY="220" alt="">
     <img class="elementos drag" id="drag2" data-id="2" src="./img/pagina02/drag02.png" data-posX="570" data-posY="280" alt="">
@@ -162,16 +162,18 @@
                     let dragActivo = $(`#drag${dragSelect}`);
                     let dropActivo = $(`#drop${dropCorrespondiente}`);
 
+                    console.log(dropActivo);
+
                     const dropTop = dropActivo.css('top');
                     const dropLeft = dropActivo.css('left');
 
                     dragActivo.css({
-                      'top': dropTop,
-                      'left': dropLeft,
-                      'margin-left' : '26rem',
-                      'margin-top' : '.5rem'
+                        'top': dropTop,
+                        'left': dropLeft,
+                        'margin-left' : '26rem',
+                        'margin-top' : '.5rem'
                     });
-
+                    
                     dragActivo.draggable({
                         revert: false,
                     });
