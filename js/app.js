@@ -58,7 +58,7 @@ redimensionar();
 let intervalo; 
 $(window).resize(function(){
     clearTimeout(intervalo);
-    intervalo = setTimeout(escalar, 100);
+    intervalo = setTimeout(escalar, 300);
 });
 
 function escalar(){

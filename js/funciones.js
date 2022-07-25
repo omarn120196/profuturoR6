@@ -45,13 +45,11 @@ export function cargarPagina(noPagina, paginasActivas){
     const url = `contenido/${paginas[noPagina].ruta}`;
 
     //Visualizar página
-    jQuery(function($){
 
-        $.get(url, {}, function(data){
-            contendorPáginas.html(data);
+    $.get(url, {}, function(data){
+        contendorPáginas.html(data);
 
-            ajustarElementos(); 
-        });
+        ajustarElementos(); 
     });
 }
 
@@ -66,7 +64,7 @@ async function ajustarElementos(){
         await posicionamiento();
         setTimeout(()=>{
             redimensionar();
-        }, 1500);
+        }, 1000);
     } catch (error) {
         console.log(error);
     }

@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 09 | I4L</title>
-
+    <title>Página 01 | I4L</title>
 </head>
-<body>
+<body class="pagina-interna">
     <img class="elementos" id="titulo" src="./img/pagina08/titulo.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="instrucciones" src="./img/pagina08/instrucciones.png" data-posX="0" data-posY="0" alt="">
 
@@ -43,188 +42,187 @@
 
     <!-- Script de la página -->
     <script type="module">
-        import {aplicacion} from './js/app.js';
-        import {animacionEntrada, parpadea} from './js/animaciones.js';
-        import {cargando} from './js/funciones.js';
+        // Importaciones---------------------------------------------------
+        import { aplicacion } from './js/app.js';
+        import { animacionEntrada} from './js/animaciones.js';
+        import { cargando } from './js/funciones.js';
+
+        // Audio-----------------------------------------------------------
+        const audio = [
+            new Audio('./audios/R6_08_1.mp3'),
+            new Audio('./audios/R6_08_2.mp3'),
+            new Audio('./audios/R6_08_3.mp3'),
+            new Audio('./audios/R6_08_4.mp3'),
+            new Audio('./audios/R6_08_5.mp3'),
+            new Audio('./audios/R6_08_6.mp3'),
+            new Audio('./audios/R6_08_7.mp3'),
+            new Audio('./audios/R6_08_8.mp3'),
+            new Audio('./audios/s_bien.mp3'),
+            new Audio('./audios/s_mal.mp3'),
+        ]
+
+        // Variables
+        const titulo = $('#titulo');
+        const instrucciones = $('#instrucciones');
+
+        const c1 = $('#c1');
+        const c2 = $('#c2');
+        const c3 = $('#c3');
+        const c4 = $('#c4');
+        const c5 = $('#c5');
+        const c6 = $('#c6');
+        const c7 = $('#c7');
+        const c8 = $('#c8');
+        const c9 = $('#c9');
+        const c10 = $('#c10');
+        const c11 = $('#c11');
+        const c12 = $('#c12');
+
+        const m1 = $('#m1');
+        const m2 = $('#m2');
+        const m3 = $('#m3');
+        const m4 = $('#m4');
+        const m5 = $('#m5');
+        const m6 = $('#m6');
+        const m7 = $('#m7');
+        const m8 = $('#m8');
+        const m9 = $('#m9');
+        const m10 = $('#m10');
+        const m11 = $('#m11');
+        const m12 = $('#m12');
+
+        const candados = $('.candados');
+        candados.css('cursor', 'pointer');
+
+        const retro = $('#retro');
+
+        let cartasAbiertas = 0;
+        let paresEncontrados = 0;
+        let par1;
+        let par2;
+        let carta1;
+        let carta2;
+        let candado1;
+        let candado2;
+        let candadoID1;
+        let candadoID2;
+
+        let audioActual;
 
         jQuery(function($){
-            
-            // Cargar Audios------------------------------------------------------
-            const audio = [
-                new Audio('./audios/R6_08_1.mp3'),
-                new Audio('./audios/R6_08_2.mp3'),
-                new Audio('./audios/R6_08_3.mp3'),
-                new Audio('./audios/R6_08_4.mp3'),
-                new Audio('./audios/R6_08_5.mp3'),
-                new Audio('./audios/R6_08_6.mp3'),
-                new Audio('./audios/R6_08_7.mp3'),
-                new Audio('./audios/R6_08_8.mp3'),
-                new Audio('./audios/s_bien.mp3'),
-                new Audio('./audios/s_mal.mp3'),
-            ]
-
-            //Crear Variables-----------------------------------------------------
-            const titulo = $('#titulo');
-            const instrucciones = $('#instrucciones');
-
-            const c1 = $('#c1');
-            const c2 = $('#c2');
-            const c3 = $('#c3');
-            const c4 = $('#c4');
-            const c5 = $('#c5');
-            const c6 = $('#c6');
-            const c7 = $('#c7');
-            const c8 = $('#c8');
-            const c9 = $('#c9');
-            const c10 = $('#c10');
-            const c11 = $('#c11');
-            const c12 = $('#c12');
-
-            const m1 = $('#m1');
-            const m2 = $('#m2');
-            const m3 = $('#m3');
-            const m4 = $('#m4');
-            const m5 = $('#m5');
-            const m6 = $('#m6');
-            const m7 = $('#m7');
-            const m8 = $('#m8');
-            const m9 = $('#m9');
-            const m10 = $('#m10');
-            const m11 = $('#m11');
-            const m12 = $('#m12');
-
-            const candados = $('.candados');
-            candados.css('cursor', 'pointer');
-
-            const retro = $('#retro');
-
-            let cartasAbiertas = 0;
-            let paresEncontrados = 0;
-            let par1;
-            let par2;
-            let carta1;
-            let carta2;
-            let candado1;
-            let candado2;
-            let candadoID1;
-            let candadoID2;
-
-            let audioActual;
-            
-            //Iniciar contenido de la página--------------------------------------
             cargando(iniciarPagina);
-
-            function iniciarPagina(){
-                aplicacion.reproducirAudio(audio[0], memorama, 1000);
-                animacionEntrada(titulo, 'izquierda-derecha', 1);
-                animacionEntrada(instrucciones, 'derecha-izquierda', 1);
-                animacionEntrada(c1, 'arriba-abajo', .5, 1);
-                animacionEntrada(c2, 'arriba-abajo', .5, 1.5);
-                animacionEntrada(c3, 'arriba-abajo', .5, 2);
-                animacionEntrada(c4, 'arriba-abajo', .5, 2.5);
-                animacionEntrada(c5, 'arriba-abajo', .5, 3);
-                animacionEntrada(c6, 'arriba-abajo', .5, 3.5);
-                animacionEntrada(c7, 'arriba-abajo', .5, 4);
-                animacionEntrada(c8, 'arriba-abajo', .5, 4.5);
-                animacionEntrada(c9, 'arriba-abajo', .5, 5);
-                animacionEntrada(c10, 'arriba-abajo', .5, 5.5);
-                animacionEntrada(c11, 'arriba-abajo', .5, 6);
-                animacionEntrada(c12, 'arriba-abajo', .5, 6.5);
-
-                animacionEntrada(m1, 'default', .5, 7);
-                animacionEntrada(m2, 'default', .5, 7);
-                animacionEntrada(m3, 'default', .5, 7);
-                animacionEntrada(m4, 'default', .5, 7);
-                animacionEntrada(m5, 'default', .5, 7);
-                animacionEntrada(m6, 'default', .5, 7);
-                animacionEntrada(m7, 'default', .5, 7);
-                animacionEntrada(m8, 'default', .5, 7);
-                animacionEntrada(m9, 'default', .5, 7);
-                animacionEntrada(m10, 'default', .5, 7);
-                animacionEntrada(m11, 'default', .5, 7);
-                animacionEntrada(m12, 'default', .5, 7);
-            }
-
-            function memorama(){
-                $.each(candados, function(){
-                    $(this).click(function(){
-                        cartasAbiertas++;
-                        
-
-                        if(cartasAbiertas == 1){
-                            candadoID1 = $(this).attr('id');
-                            candado1 = $(`#${candadoID1}`);
-                            candado1.css('opacity', '0');
-                            par1 = $(this).data('card');
-                        }
-                        else if(cartasAbiertas == 2){
-                            candadoID2 = $(this).attr('id');
-                            candado2 = $(`#${candadoID2}`);
-                            candado2.css('opacity', '0');
-                            cartasAbiertas = 0;
-                            par2 = $(this).data('card');
-                            
-                            if(par1 == par2){
-                                
-                                switch(par1){
-                                    case 1:
-                                    audio[7].play();
-                                    break;
-                                    case 2:
-                                    audio[4].play();
-                                    break;
-                                    case 3:
-                                    audio[3].play();
-                                    break;
-                                    case 4:
-                                    audio[2].play();
-                                    break;
-                                    case 5:
-                                    audio[6].play();
-                                    break;
-                                    case 6:
-                                    audio[5].play();
-                                    break;
-                                    default: break;
-                                }
-                                bien();
-                            }
-                            else{
-                                audio[9].play()
-                                mal();
-                            }
-                        }
-                    });
-                });
-            }
-
-            function bien(){
-                candado1.css('display', 'none');
-                candado2.css('display', 'none');
-                paresEncontrados ++;
-
-                if(paresEncontrados == 6){
-                    retroP();
-                }
-            }
-
-            function mal(){
-                setTimeout(()=>{
-                    candado1.css('opacity', '1');
-                    candado2.css('opacity', '1');
-                }, 1000);
-            }
-
-            function retroP(){
-                aplicacion.reproducirAudio(audio[1], finalPagina, 5000);
-                animacionEntrada(retro, 'arriba-abajo', 1, 5);
-            }
-
-
-            function finalPagina(){
-                aplicacion.terminaPantalla();
-            }
         });
+
+        const iniciarPagina = ()=>{
+            aplicacion.reproducirAudio(audio[0], memorama, 1000);
+            animacionEntrada(titulo, 'izquierda-derecha', 1);
+            animacionEntrada(instrucciones, 'derecha-izquierda', 1);
+            animacionEntrada(c1, 'arriba-abajo', .5, 1);
+            animacionEntrada(c2, 'arriba-abajo', .5, 1.5);
+            animacionEntrada(c3, 'arriba-abajo', .5, 2);
+            animacionEntrada(c4, 'arriba-abajo', .5, 2.5);
+            animacionEntrada(c5, 'arriba-abajo', .5, 3);
+            animacionEntrada(c6, 'arriba-abajo', .5, 3.5);
+            animacionEntrada(c7, 'arriba-abajo', .5, 4);
+            animacionEntrada(c8, 'arriba-abajo', .5, 4.5);
+            animacionEntrada(c9, 'arriba-abajo', .5, 5);
+            animacionEntrada(c10, 'arriba-abajo', .5, 5.5);
+            animacionEntrada(c11, 'arriba-abajo', .5, 6);
+            animacionEntrada(c12, 'arriba-abajo', .5, 6.5);
+
+            animacionEntrada(m1, 'default', .5, 7);
+            animacionEntrada(m2, 'default', .5, 7);
+            animacionEntrada(m3, 'default', .5, 7);
+            animacionEntrada(m4, 'default', .5, 7);
+            animacionEntrada(m5, 'default', .5, 7);
+            animacionEntrada(m6, 'default', .5, 7);
+            animacionEntrada(m7, 'default', .5, 7);
+            animacionEntrada(m8, 'default', .5, 7);
+            animacionEntrada(m9, 'default', .5, 7);
+            animacionEntrada(m10, 'default', .5, 7);
+            animacionEntrada(m11, 'default', .5, 7);
+            animacionEntrada(m12, 'default', .5, 7);
+        }
+
+        const memorama = ()=>{
+            $.each(candados, function(){
+                $(this).click(function(){
+                    cartasAbiertas++;
+                    
+
+                    if(cartasAbiertas == 1){
+                        candadoID1 = $(this).attr('id');
+                        candado1 = $(`#${candadoID1}`);
+                        candado1.css('opacity', '0');
+                        par1 = $(this).data('card');
+                    }
+                    else if(cartasAbiertas == 2){
+                        candadoID2 = $(this).attr('id');
+                        candado2 = $(`#${candadoID2}`);
+                        candado2.css('opacity', '0');
+                        cartasAbiertas = 0;
+                        par2 = $(this).data('card');
+                        
+                        if(par1 == par2){
+                            
+                            switch(par1){
+                                case 1:
+                                audio[7].play();
+                                break;
+                                case 2:
+                                audio[4].play();
+                                break;
+                                case 3:
+                                audio[3].play();
+                                break;
+                                case 4:
+                                audio[2].play();
+                                break;
+                                case 5:
+                                audio[6].play();
+                                break;
+                                case 6:
+                                audio[5].play();
+                                break;
+                                default: break;
+                            }
+                            bien();
+                        }
+                        else{
+                            audio[9].play()
+                            mal();
+                        }
+                    }
+                });
+            });
+        }
+
+        const bien = ()=>{
+            candado1.css('display', 'none');
+            candado2.css('display', 'none');
+            paresEncontrados ++;
+
+            if(paresEncontrados == 6){
+                retroP();
+            }
+        }
+
+        const mal = ()=>{
+            setTimeout(()=>{
+                candado1.css('opacity', '1');
+                candado2.css('opacity', '1');
+            }, 1000);
+        }
+
+        const retroP = ()=>{
+            aplicacion.reproducirAudio(audio[1], finalPagina, 4000);
+            animacionEntrada(retro, 'arriba-abajo', 1, 4);
+        }
+
+        const finalPagina = ()=>{
+            aplicacion.terminaPantalla();
+        }
+
     </script>
 
     <!-- Termina Script -->

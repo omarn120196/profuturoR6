@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 05 | I4L</title>
-
+    <title>Página 01 | I4L</title>
 </head>
-
-<body>
+<body class="pagina-interna">
     <img class="elementos" id="titulo" src="./img/pagina05/titulo.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="instrucciones" src="./img/pagina05/instrucciones.png" data-posX="0" data-posY="0" alt="">
 
@@ -39,330 +36,297 @@
 
     <!-- Script de la página -->
     <script type="module">
+
+        // Importaciones---------------------------------------------------
         import { aplicacion } from './js/app.js';
-        import { animacionEntrada, animacionSalida, parpadea } from './js/animaciones.js';
+        import { animacionEntrada, animacionSalida, parpadea, pararParpadear } from './js/animaciones.js';
         import { cargando } from './js/funciones.js';
 
-        jQuery(function ($) {
+        // Cargar Audios------------------------------------------------------
+        const audio = [
+            new Audio('./audios/R6_05_1.mp3'),
+            new Audio('./audios/R6_05_2.mp3'),
+            new Audio('./audios/R6_05_3.mp3'),
+            new Audio('./audios/s_bien.mp3'), //3
+            new Audio('./audios/s_mal.mp3'), //4
+            new Audio('./audios/R6_05_4.mp3'),
+            new Audio('./audios/R6_05_5.mp3'),
+            new Audio('./audios/R6_05_6.mp3'),
+            new Audio('./audios/R6_05_7.mp3'),
+            new Audio('./audios/R6_05_8.mp3'),
+        ]
 
-            // Cargar Audios------------------------------------------------------
-            const audio = [
-                new Audio('./audios/R6_05_1.mp3'),
-                new Audio('./audios/R6_05_2.mp3'),
-                new Audio('./audios/R6_05_3.mp3'),
-                new Audio('./audios/s_bien.mp3'), //3
-                new Audio('./audios/s_mal.mp3'), //4
-                new Audio('./audios/R6_05_4.mp3'),
-                new Audio('./audios/R6_05_5.mp3'),
-                new Audio('./audios/R6_05_6.mp3'),
-                new Audio('./audios/R6_05_7.mp3'),
-                new Audio('./audios/R6_05_8.mp3'),
-            ]
+        // Variables-------------------------------------------------------
+        const titulo = $('#titulo');
+        const instrucciones = $('#instrucciones');
+        const retroPositiva = $('#retroPositiva');
+        const retroNegativa = $('#retroNegativa');
+        const reintentar = $('#btnReintentar');
 
-            //Crear Variables-----------------------------------------------------
-            const titulo = $('#titulo');
-            const instrucciones = $('#instrucciones');
-            const retroPositiva = $('#retroPositiva');
-            const retroNegativa = $('#retroNegativa');
-            const reintentar = $('#btnReintentar');
+        let preguntaActual = 1
+        let puntos = 0;
 
-            let preguntaActual = 1
-            let puntos = 0;
+        const pregunta1 = $('#pregunta1');
+        const res1V = $('#v1');
+        const res1F = $('#f1');
 
-            //Iniciar contenido de la página--------------------------------------
+        const pregunta2 = $('#pregunta2');
+        const res2V = $('#v2');
+        const res2F = $('#f2');
+
+        const pregunta3 = $('#pregunta3');
+        const res3V = $('#v3');
+        const res3F = $('#f3');
+
+        const pregunta4 = $('#pregunta4');
+        const res4V = $('#v4');
+        const res4F = $('#f4');
+
+        const pregunta5 = $('#pregunta5');
+        const res5V = $('#v5');
+        const res5F = $('#f5');
+
+
+        //Al cargar la página
+        jQuery(function($){
             cargando(iniciarPagina);
-
-            function iniciarPagina() {
-                aplicacion.reproducirAudio(audio[0], verPregunta1, 1000);
-                animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
-                animacionEntrada(instrucciones, 'izquierda-derecha', 1, 1);
-            }
-
-            function verPregunta1() {
-                const pregunta = $('#pregunta1');
-                const resV = $('#v1');
-                const resF = $('#f1');
-
-                resV.css('cursor', 'pointer');
-                resF.css('cursor', 'pointer');
-
-                aplicacion.reproducirAudio(audio[5], clicRespuesta, 1000);
-                animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
-                animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(resF, 'derecha-izquierda', 1, 2);
-
-                function clicRespuesta(){
-                    resV.click(function () {
-                        verificar(resV, 1);
-                    });
-
-                    resF.click(function () {
-                        verificar(resF, 2);
-                    });
-                }
-
-                function verificar(respuesta, inciso) {
-                    const evaluar = respuesta.data('respuesta');
-
-                    if (evaluar == 'bien') {
-                        aplicacion.reproducirAudio(audio[3], ocultarPregunta, 1000);
-                        puntos++;
-                    }
-                    else {
-                        aplicacion.reproducirAudio(audio[4], ocultarPregunta, 1000);
-                    }
-                }
-
-                function ocultarPregunta() {
-                    animacionSalida(pregunta, 'abajo-arriba', 1, .5);
-                    animacionSalida(resV, 'derecha-izquierda', 1, 1);
-                    animacionSalida(resF, 'derecha-izquierda', 1, 1.5);
-
-
-                    setTimeout(() => {
-
-                        pregunta.remove();
-                        resV.remove();
-                        resF.remove();
-
-                        verPregunta2();
-                    }, 4000)
-                }
-            }
-
-            function verPregunta2() {
-                const pregunta = $('#pregunta2');
-                const resV = $('#v2');
-                const resF = $('#f2');
-
-                resV.css('cursor', 'pointer');
-                resF.css('cursor', 'pointer');
-
-                aplicacion.reproducirAudio(audio[6], clicRespuesta, 1000);
-                animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
-                animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(resF, 'derecha-izquierda', 1, 2);
-
-                function clicRespuesta(){
-                    resV.click(function () {
-                        verificar(resV, 1);
-                    });
-
-                    resF.click(function () {
-                        verificar(resF, 2);
-                    });
-                }
-
-                function verificar(respuesta, inciso) {
-                    const evaluar = respuesta.data('respuesta');
-
-                    if (evaluar == 'bien') {
-                        aplicacion.reproducirAudio(audio[3], ocultarPregunta, 1000);
-                        puntos++;
-                    }
-                    else {
-                        aplicacion.reproducirAudio(audio[4], ocultarPregunta, 1000);
-                    }
-                }
-
-                function ocultarPregunta() {
-                    animacionSalida(pregunta, 'abajo-arriba', 1, .5);
-                    animacionSalida(resV, 'derecha-izquierda', 1, 1.5);
-                    animacionSalida(resF, 'derecha-izquierda', 1, 2);
-
-
-                    setTimeout(() => {
-
-                        pregunta.remove();
-                        resV.remove();
-                        resF.remove();
-
-                        verPregunta3();
-                    }, 4000)
-                }
-            }
-
-            function verPregunta3() {
-                const pregunta = $('#pregunta3');
-                const resV = $('#v3');
-                const resF = $('#f3');
-
-                resV.css('cursor', 'pointer');
-                resF.css('cursor', 'pointer');
-
-                aplicacion.reproducirAudio(audio[7], clicRespuesta, 1000);
-                animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
-                animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(resF, 'derecha-izquierda', 1, 2);
-
-                function clicRespuesta(){
-                    resV.click(function () {
-                        verificar(resV, 1);
-                    });
-
-                    resF.click(function () {
-                        verificar(resF, 2);
-                    });
-                }
-
-                function verificar(respuesta, inciso) {
-                    const evaluar = respuesta.data('respuesta');
-
-                    if (evaluar == 'bien') {
-                        aplicacion.reproducirAudio(audio[3], ocultarPregunta, 1000);
-                        puntos++;
-                    }
-                    else {
-                        aplicacion.reproducirAudio(audio[4], ocultarPregunta, 1000);
-                    }
-                }
-
-                function ocultarPregunta() {
-                    animacionSalida(pregunta, 'abajo-arriba', 1, .5);
-                    animacionSalida(resV, 'derecha-izquierda', 1, 1.5);
-                    animacionSalida(resF, 'derecha-izquierda', 1, 2);
-
-
-                    setTimeout(() => {
-
-                        pregunta.remove();
-                        resV.remove();
-                        resF.remove();
-
-                        verPregunta4();
-                    }, 4000)
-                }
-            }
-
-            function verPregunta4() {
-                const pregunta = $('#pregunta4');
-                const resV = $('#v4');
-                const resF = $('#f4');
-
-                resV.css('cursor', 'pointer');
-                resF.css('cursor', 'pointer');
-
-                aplicacion.reproducirAudio(audio[8], clicRespuesta, 1000);
-                animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
-                animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(resF, 'derecha-izquierda', 1, 2);
-
-                function clicRespuesta(){
-                    resV.click(function () {
-                        verificar(resV, 1);
-                    });
-
-                    resF.click(function () {
-                        verificar(resF, 2);
-                    });
-                }
-                
-                function verificar(respuesta, inciso) {
-                    const evaluar = respuesta.data('respuesta');
-
-                    if (evaluar == 'bien') {
-                        aplicacion.reproducirAudio(audio[3], ocultarPregunta, 1000);
-                        puntos++;
-                    }
-                    else {
-                        aplicacion.reproducirAudio(audio[4], ocultarPregunta, 1000);
-                    }
-                }
-
-                function ocultarPregunta() {
-                    animacionSalida(pregunta, 'abajo-arriba', 1, .5);
-                    animacionSalida(resV, 'derecha-izquierda', 1, 1.5);
-                    animacionSalida(resF, 'derecha-izquierda', 1, 2);
-
-
-                    setTimeout(() => {
-
-                        pregunta.remove();
-                        resV.remove();
-                        resF.remove();
-
-                        verPregunta5();
-                    }, 4000);
-                }
-            }
-
-            function verPregunta5() {
-                const pregunta = $('#pregunta5');
-                const resV = $('#v5');
-                const resF = $('#f5');
-
-                resV.css('cursor', 'pointer');
-                resF.css('cursor', 'pointer');
-
-                aplicacion.reproducirAudio(audio[9], clicRespuesta, 1000);
-                animacionEntrada(pregunta, 'arriba-abajo', 1, .8);
-                animacionEntrada(resV, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(resF, 'derecha-izquierda', 1, 2);
-
-                function clicRespuesta(){
-                    resV.click(function () {
-                        verificar(resV, 1);
-                    });
-
-                    resF.click(function () {
-                        verificar(resF, 2);
-                    });
-                }
-                
-                function verificar(respuesta, inciso) {
-                    const evaluar = respuesta.data('respuesta');
-
-                    if (evaluar == 'bien') {
-                        aplicacion.reproducirAudio(audio[3], ocultarPregunta, 1000);
-                        puntos++;
-                    }
-                    else {
-                        aplicacion.reproducirAudio(audio[4], ocultarPregunta, 1000);
-                    }
-                }
-
-                function ocultarPregunta() {
-                    animacionSalida(pregunta, 'abajo-arriba', 1, .5);
-                    animacionSalida(resV, 'derecha-izquierda', 1, 1.5);
-                    animacionSalida(resF, 'derecha-izquierda', 1, 2);
-
-
-                    setTimeout(() => {
-
-                        pregunta.remove();
-                        resV.remove();
-                        resF.remove();
-
-                        evaluar();
-                    }, 4000)
-                }
-            }
-
-            function evaluar(){
-                if(puntos == 5){
-                    aplicacion.reproducirAudio(audio[1], terminaPagina, 1000);
-                    animacionEntrada(retroPositiva, 'arriba-abajo', 1, .8);
-
-                    function terminaPagina(){
-                        aplicacion.terminaPantalla();
-                    }
-                } else{
-                    aplicacion.reproducirAudio(audio[2], nuevoIntento, 1000);
-                    animacionEntrada(retroNegativa, 'arriba-abajo', 1, .8);
-
-                    function nuevoIntento() {
-                        parpadea(reintentar);
-                        reintentar.click(function () {
-                            TweenMax.killTweensOf(reintentar);
-                            aplicacion.recargarPag();
-                        });
-                    }
-                }
-            }
         });
+
+        const iniciarPagina = ()=>{
+            aplicacion.reproducirAudio(audio[0], verPregunta1, 1000);
+            animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
+            animacionEntrada(instrucciones, 'izquierda-derecha', 1, 1);
+        }
+
+        const verPregunta1 = ()=>{
+            aplicacion.reproducirAudio(audio[5], clicRespuesta1, 1000);
+            res1V.css('cursor', 'pointer');
+            res1F.css('cursor', 'pointer');
+            animacionEntrada(pregunta1, 'arriba-abajo', 1, .8);
+            animacionEntrada(res1V, 'derecha-izquierda', 1, 1.5);
+            animacionEntrada(res1F, 'derecha-izquierda', 1, 2);
+        }
+
+        const clicRespuesta1 = ()=>{
+            res1V.click(function () {
+                verificar1(res1V, 1);
+            });
+
+            res1F.click(function () {
+                verificar1(res1F, 2);
+            });
+        }
+
+        const verificar1 = (respuesta, inciso)=>{
+            const evaluar = respuesta.data('respuesta');
+
+            if (evaluar == 'bien') {
+                aplicacion.reproducirAudio(audio[3], ocultarPregunta1, 1000);
+                puntos++;
+            }
+            else {
+                aplicacion.reproducirAudio(audio[4], ocultarPregunta1, 1000);
+            }
+        }
+
+        const ocultarPregunta1 = ()=>{
+            animacionSalida(pregunta1, 'abajo-arriba', 1, .5, true);
+            animacionSalida(res1V, 'derecha-izquierda', 1, 1, true);
+            animacionSalida(res1F, 'derecha-izquierda', 1, 1.5, true);
+
+            setTimeout(()=>{
+                verPregunta2();
+            }, 3000);
+        }
+
+        const verPregunta2 = ()=>{
+            aplicacion.reproducirAudio(audio[6], clicRespuesta2, 1000);
+            res2V.css('cursor', 'pointer');
+            res2F.css('cursor', 'pointer');
+            animacionEntrada(pregunta2, 'arriba-abajo', 1, .8);
+            animacionEntrada(res2V, 'derecha-izquierda', 1, 1.5);
+            animacionEntrada(res2F, 'derecha-izquierda', 1, 2);
+        }
+
+        const clicRespuesta2 = ()=>{
+            res2V.click(function () {
+                verificar2(res2V, 1);
+            });
+
+            res2F.click(function () {
+                verificar2(res2F, 2);
+            });
+        }
+
+        const verificar2 = (respuesta, inciso)=>{
+            const evaluar = respuesta.data('respuesta');
+
+            if (evaluar == 'bien') {
+                aplicacion.reproducirAudio(audio[3], ocultarPregunta2, 1000);
+                puntos++;
+            }
+            else {
+                aplicacion.reproducirAudio(audio[4], ocultarPregunta2, 1000);
+            }
+        }
+
+        const ocultarPregunta2 = ()=>{
+            animacionSalida(pregunta2, 'abajo-arriba', 1, .5, true);
+            animacionSalida(res2V, 'derecha-izquierda', 1, 1, true);
+            animacionSalida(res2F, 'derecha-izquierda', 1, 1.5, true);
+
+            setTimeout(()=>{
+                verPregunta3();
+            }, 3000);
+        }
+
+        const verPregunta3 = ()=>{
+            aplicacion.reproducirAudio(audio[7], clicRespuesta3, 1000);
+            res3V.css('cursor', 'pointer');
+            res3F.css('cursor', 'pointer');
+            animacionEntrada(pregunta3, 'arriba-abajo', 1, .8);
+            animacionEntrada(res3V, 'derecha-izquierda', 1, 1.5);
+            animacionEntrada(res3F, 'derecha-izquierda', 1, 2);
+        }
+
+        const clicRespuesta3 = ()=>{
+            res3V.click(function () {
+                verificar3(res3V, 1);
+            });
+
+            res3F.click(function () {
+                verificar3(res3F, 2);
+            });
+        }
+
+        const verificar3 = (respuesta, inciso)=>{
+            const evaluar = respuesta.data('respuesta');
+
+            if (evaluar == 'bien') {
+                aplicacion.reproducirAudio(audio[3], ocultarPregunta3, 1000);
+                puntos++;
+            }
+            else {
+                aplicacion.reproducirAudio(audio[4], ocultarPregunta3, 1000);
+            }
+        }
+
+        const ocultarPregunta3 = ()=>{
+            animacionSalida(pregunta3, 'abajo-arriba', 1, .5, true);
+            animacionSalida(res3V, 'derecha-izquierda', 1, 1, true);
+            animacionSalida(res3F, 'derecha-izquierda', 1, 1.5, true);
+
+            setTimeout(()=>{
+                verPregunta4();
+            }, 3000);
+        }
+
+        const verPregunta4 = ()=>{
+            aplicacion.reproducirAudio(audio[8], clicRespuesta4, 1000);
+            res4V.css('cursor', 'pointer');
+            res4F.css('cursor', 'pointer');
+            animacionEntrada(pregunta4, 'arriba-abajo', 1, .8);
+            animacionEntrada(res4V, 'derecha-izquierda', 1, 1.5);
+            animacionEntrada(res4F, 'derecha-izquierda', 1, 2);
+        }
+
+        const clicRespuesta4 = ()=>{
+            res4V.click(function () {
+                verificar4(res4V, 1);
+            });
+
+            res4F.click(function () {
+                verificar4(res4F, 2);
+            });
+        }
+
+        const verificar4 = (respuesta, inciso)=>{
+            const evaluar = respuesta.data('respuesta');
+
+            if (evaluar == 'bien') {
+                aplicacion.reproducirAudio(audio[3], ocultarPregunta4, 1000);
+                puntos++;
+            }
+            else {
+                aplicacion.reproducirAudio(audio[4], ocultarPregunta4, 1000);
+            }
+        }
+
+        const ocultarPregunta4 = ()=>{
+            animacionSalida(pregunta4, 'abajo-arriba', 1, .5, true);
+            animacionSalida(res4V, 'derecha-izquierda', 1, 1, true);
+            animacionSalida(res4F, 'derecha-izquierda', 1, 1.5, true);
+
+            setTimeout(()=>{
+                verPregunta5();
+            }, 3000);
+        }
+
+        const verPregunta5 = ()=>{
+            aplicacion.reproducirAudio(audio[9], clicRespuesta5, 1000);
+            res5V.css('cursor', 'pointer');
+            res5F.css('cursor', 'pointer');
+            animacionEntrada(pregunta5, 'arriba-abajo', 1, .8);
+            animacionEntrada(res5V, 'derecha-izquierda', 1, 1.5);
+            animacionEntrada(res5F, 'derecha-izquierda', 1, 2);
+        }
+
+        const clicRespuesta5 = ()=>{
+            res5V.click(function () {
+                verificar5(res5V, 1);
+            });
+
+            res5F.click(function () {
+                verificar5(res5F, 2);
+            });
+        }
+
+        const verificar5 = (respuesta, inciso)=>{
+            const evaluar = respuesta.data('respuesta');
+
+            if (evaluar == 'bien') {
+                aplicacion.reproducirAudio(audio[3], ocultarPregunta5, 1000);
+                puntos++;
+            }
+            else {
+                aplicacion.reproducirAudio(audio[4], ocultarPregunta5, 1000);
+            }
+        }
+
+        const ocultarPregunta5 = ()=>{
+            animacionSalida(pregunta5, 'abajo-arriba', 1, .5, true);
+            animacionSalida(res5V, 'derecha-izquierda', 1, 1, true);
+            animacionSalida(res5F, 'derecha-izquierda', 1, 1.5, true);
+
+            setTimeout(()=>{
+                evaluar();
+            }, 3000);
+        }
+
+        const evaluar = ()=>{
+            if(puntos == 5){
+                aplicacion.reproducirAudio(audio[1], terminaPagina, 1000);
+                animacionEntrada(retroPositiva, 'arriba-abajo', 1, .8);
+
+                function terminaPagina(){
+                    aplicacion.terminaPantalla();
+                }
+            } else{
+                aplicacion.reproducirAudio(audio[2], nuevoIntento, 1000);
+                animacionEntrada(retroNegativa, 'arriba-abajo', 1, .8);
+
+                function nuevoIntento() {
+                    parpadea(reintentar);
+                    reintentar.click(function () {
+                        TweenMax.killTweensOf(reintentar);
+                        aplicacion.recargarPag();
+                    });
+                }
+            }
+        } 
+
     </script>
 
     <!-- Termina Script -->
 </body>
-
 </html>

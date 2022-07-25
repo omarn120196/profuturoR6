@@ -86,8 +86,8 @@ export class App{
             this.noPagina++;
             actualizarTemario(this.noPagina);
             desactivarBotonSiguiente();
-            asignarLocacion(this.noPagina);
             this.detenerAudios();
+            asignarLocacion(this.noPagina);
             actualizarPorcentaje(this.noPagina, this.totalPaginas);
             cargarPagina(this.noPagina, this.paginasActivas);
         }
@@ -103,7 +103,7 @@ export class App{
         if(this.noPagina > 0){
             this.noPagina--;
 
-            this.bloquearNavegacion();
+            // this.bloquearNavegacion();
             asignarLocacion(this.noPagina);
             this.detenerAudios();
             actualizarPorcentaje(this.noPagina, this.totalPaginas);
@@ -155,10 +155,13 @@ export class App{
         this.delayAudio = setTimeout(()=>{
             
             if(this.audiosActivos){
+                this.audio.currentTime = 0;
                 this.audio.play();
             
                 this.audio.addEventListener("ended", () => {
-                    funcion();
+                    if(funcion){
+                        funcion();
+                    }
                 });
             }
             
@@ -184,7 +187,7 @@ export class App{
         this.audiosActivos = false;
         clearTimeout(this.delayAudio);
         this.audio.pause();
-        this.audio.currenTime = 0;
+        this.audio = undefined;
 
         setTimeout(()=>{
             this.audiosActivos = true;

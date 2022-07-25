@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 06 | I4L</title>
-
+    <title>Página 01 | I4L</title>
 </head>
-<body>
+<body class="pagina-interna">
     <img class="elementos" id="titulo" src="./img/pagina06/titulo.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="instrucciones" src="./img/pagina06/instrucciones.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos candados" data-candado="1" id="candado1" src="./img/pagina06/candado1.png" data-posX="617" data-posY="181" alt="">
@@ -34,139 +33,139 @@
     <img class="elementos etiquetas" data-candado="3"data-c="16" id="c16" src="./img/pagina06/c16.png" data-posX="26" data-posY="479" alt="">
     <img class="elementos etiquetas" data-candado="4"data-c="17" id="c17" src="./img/pagina06/c17.png" data-posX="181" data-posY="479" alt="">
     <img class="elementos etiquetas" data-candado="3"data-c="18" id="c18" src="./img/pagina06/c18.png" data-posX="331" data-posY="479" alt="">
-    
+
     <img class="elementos"id="retro" src="./img/pagina06/retro.png" data-posX="0" data-posY="0" alt="">
 
     <!-- Script de la página -->
     <script type="module">
+        // Importaciones---------------------------------------------------
         import {aplicacion} from './js/app.js';
-        import {animacionEntrada, parpadea, animacionSalida} from './js/animaciones.js';
         import {cargando} from './js/funciones.js';
+        import {animacionEntrada, parpadea, animacionSalida} from './js/animaciones.js';
+
+        // Variables-------------------------------------------------------
+        const titulo = $('#titulo');
+        const instrucciones = $('#instrucciones');
+        const candado1 = $('#candado1');
+        const candado2 = $('#candado2');
+        const candado3 = $('#candado3');
+        const candado4 = $('#candado4');
+        const c1 = $('#c1');
+        const c2 = $('#c2');
+        const c3 = $('#c3');
+        const c4 = $('#c4');
+        const c5 = $('#c5');
+        const c6 = $('#c6');
+        const c7 = $('#c7');
+        const c8 = $('#c8');
+        const c9 = $('#c9');
+        const c10 = $('#c10');
+        const c11 = $('#c11');
+        const c12 = $('#c12');
+        const c13 = $('#c13');
+        const c14 = $('#c14');
+        const c15 = $('#c15');
+        const c16 = $('#c16');
+        const c17 = $('#c17');
+        const c18 = $('#c18');
+        const retro = $('#retro');
+
+        const etiquetas = $('.etiquetas');
+        etiquetas.css('cursor', 'pointer');
+
+        const candados = $('.candados');
+
+        let dragSelect;
+        let dropSelect;
+        let candadoActivo;
+        let aciertos = 0;
+
+        // Audio-----------------------------------------------------------
+        const audio = [
+            new Audio('./audios/R6_06_1.mp3'),
+            new Audio('./audios/R6_06_2.mp3'),
+            new Audio('./audios/s_bien.mp3')
+        ]
 
         jQuery(function($){
-            
-            // Cargar Audios------------------------------------------------------
-            const audio = [
-                new Audio('./audios/R6_06_1.mp3'),
-                new Audio('./audios/R6_06_2.mp3'),
-                new Audio('./audios/s_bien.mp3')
-            ]
-
-            //Crear Variables-----------------------------------------------------
-            const titulo = $('#titulo');
-            const instrucciones = $('#instrucciones');
-            const candado1 = $('#candado1');
-            const candado2 = $('#candado2');
-            const candado3 = $('#candado3');
-            const candado4 = $('#candado4');
-            const c1 = $('#c1');
-            const c2 = $('#c2');
-            const c3 = $('#c3');
-            const c4 = $('#c4');
-            const c5 = $('#c5');
-            const c6 = $('#c6');
-            const c7 = $('#c7');
-            const c8 = $('#c8');
-            const c9 = $('#c9');
-            const c10 = $('#c10');
-            const c11 = $('#c11');
-            const c12 = $('#c12');
-            const c13 = $('#c13');
-            const c14 = $('#c14');
-            const c15 = $('#c15');
-            const c16 = $('#c16');
-            const c17 = $('#c17');
-            const c18 = $('#c18');
-            const retro = $('#retro');
-
-            const etiquetas = $('.etiquetas');
-            etiquetas.css('cursor', 'pointer');
-
-            const candados = $('.candados');
-
-            let dragSelect;
-            let dropSelect;
-            let candadoActivo;
-            let aciertos = 0;
-            
-            //Iniciar contenido de la página--------------------------------------
             cargando(iniciarPagina);
+        });
 
-            function iniciarPagina(){
-                aplicacion.reproducirAudio(audio[0], actividad, 1);
-                animacionEntrada(titulo, 'izquierda-derecha', 1);
-                animacionEntrada(instrucciones, 'derecha-izquierda', 1);
-                animacionEntrada(candado1, 'derecha-izquierda', 1, 1);
-                animacionEntrada(candado2, 'derecha-izquierda', 1, 1.5);
-                animacionEntrada(candado3, 'derecha-izquierda', 1, 2);
-                animacionEntrada(candado4, 'derecha-izquierda', 1, 2.5);
-                animacionEntrada(c2, 'arriba-abajo', .5, 1.5);
-                animacionEntrada(c3, 'arriba-abajo', .5, 2);
-                animacionEntrada(c4, 'arriba-abajo', .5, 2.5);
-                animacionEntrada(c5, 'arriba-abajo', .5, 3);
-                animacionEntrada(c6, 'arriba-abajo', .5, 3.5);
-                animacionEntrada(c7, 'arriba-abajo', .5, 4);
-                animacionEntrada(c8, 'arriba-abajo', .5, 4.5);
-                animacionEntrada(c1, 'arriba-abajo', .5, 1);
-                animacionEntrada(c9, 'arriba-abajo', .5, 5);
-                animacionEntrada(c10, 'arriba-abajo', .5, 5.5);
-                animacionEntrada(c11, 'arriba-abajo', .5, 6);
-                animacionEntrada(c12, 'arriba-abajo', .5, 6.5);
-                animacionEntrada(c13, 'arriba-abajo', .5, 7);
-                animacionEntrada(c14, 'arriba-abajo', .5, 7.5);
-                animacionEntrada(c15, 'arriba-abajo', .5, 8);
-                animacionEntrada(c16, 'arriba-abajo', .5, 8.5);
-                animacionEntrada(c17, 'arriba-abajo', .5, 9);
-                animacionEntrada(c18, 'arriba-abajo', .5, 9.5);
-            }
+        const iniciarPagina = ()=>{
+            aplicacion.reproducirAudio(audio[0], actividad, 1);
+            animacionEntrada(titulo, 'izquierda-derecha', 1);
+            animacionEntrada(instrucciones, 'derecha-izquierda', 1);
+            animacionEntrada(candado1, 'derecha-izquierda', 1, 1);
+            animacionEntrada(candado2, 'derecha-izquierda', 1, 1.5);
+            animacionEntrada(candado3, 'derecha-izquierda', 1, 2);
+            animacionEntrada(candado4, 'derecha-izquierda', 1, 2.5);
+            animacionEntrada(c2, 'arriba-abajo', .5, 1.5);
+            animacionEntrada(c3, 'arriba-abajo', .5, 2);
+            animacionEntrada(c4, 'arriba-abajo', .5, 2.5);
+            animacionEntrada(c5, 'arriba-abajo', .5, 3);
+            animacionEntrada(c6, 'arriba-abajo', .5, 3.5);
+            animacionEntrada(c7, 'arriba-abajo', .5, 4);
+            animacionEntrada(c8, 'arriba-abajo', .5, 4.5);
+            animacionEntrada(c1, 'arriba-abajo', .5, 1);
+            animacionEntrada(c9, 'arriba-abajo', .5, 5);
+            animacionEntrada(c10, 'arriba-abajo', .5, 5.5);
+            animacionEntrada(c11, 'arriba-abajo', .5, 6);
+            animacionEntrada(c12, 'arriba-abajo', .5, 6.5);
+            animacionEntrada(c13, 'arriba-abajo', .5, 7);
+            animacionEntrada(c14, 'arriba-abajo', .5, 7.5);
+            animacionEntrada(c15, 'arriba-abajo', .5, 8);
+            animacionEntrada(c16, 'arriba-abajo', .5, 8.5);
+            animacionEntrada(c17, 'arriba-abajo', .5, 9);
+            animacionEntrada(c18, 'arriba-abajo', .5, 9.5);
+        }
 
-            function actividad(){
-                etiquetas.draggable({
-                    revert: true,
-                    start: function( event, ui ) {
-                        dragSelect = $(this).data('candado');
-                        candadoActivo = $(this).data('c');
-                    }
+        const actividad = ()=>{
+            etiquetas.draggable({
+                revert: true,
+                start: function( event, ui ) {
+                    dragSelect = $(this).data('candado');
+                    candadoActivo = $(this).data('c');
+                }
+            });
+
+            candados.droppable({
+                accept: etiquetas,
+                tolerance: "intersect",
+                drop: function( event, ui ) {
+                    dropSelect = $(this).data('candado');
+                    soltar();
+                }
+            });
+        }
+
+        const soltar = ()=>{
+            // Selecionar los elementos correspondiente
+            const dragActivo = $(`#c${candadoActivo}`);
+
+            if(dragSelect == dropSelect){
+
+                dragActivo.draggable({
+                    revert: false,
                 });
 
-                candados.droppable({
-                    accept: etiquetas,
-                    tolerance: "intersect",
-                    drop: function( event, ui ) {
-                        dropSelect = $(this).data('candado');
-                        soltar();
-                    }
-                });
-            }
-
-            function soltar(){
-                // Selecionar los elementos correspondiente
-                const dragActivo = $(`#c${candadoActivo}`);
-
-                if(dragSelect == dropSelect){
-
-                    dragActivo.draggable({
-                        revert: false,
-                    });
-
-                    aplicacion.reproducirAudio(audio[2], actividad, 1);
-                    animacionSalida(dragActivo, 'default', 1);
-                    aciertos++;
-                    if(aciertos == 18){
-                        retroPositiva();
-                    }
+                audio[2].play();
+                animacionSalida(dragActivo, 'default', 1);
+                aciertos++;
+                if(aciertos == 18){
+                    retroPositiva();
                 }
             }
+        }
 
-            function retroPositiva(){
-                aplicacion.reproducirAudio(audio[1], finalPagina, 1000);
-                animacionEntrada(retro, 'default', 1);
-            }
+        const retroPositiva = ()=>{
+            aplicacion.reproducirAudio(audio[1], finalPagina, 1000);
+            animacionEntrada(retro, 'default', 1);
+        }
 
-            function finalPagina(){
-                aplicacion.terminaPantalla();
-            }
-        });
+        const finalPagina = ()=>{
+            aplicacion.terminaPantalla();
+        }
+
     </script>
 
     <!-- Termina Script -->

@@ -5,44 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página 01 | I4L</title>
-
 </head>
-<body>
-    <img class="elementos" id="textoInicio" src="./img/pagina01/texto.png" data-posX="0" data-posY="0" alt="">
-    <img class="elementos" id="btn-iniciar" src="./img/pagina01/boton.png" data-posX="195" data-posY="440" alt="">
-
+<body class="pagina-interna">
+    <img class="elementos" id="inicio" src="./img/pagina01/texto.png" data-posX="0" data-posY="0">
+    <img class="elementos" id="boton" src="./img/pagina01/boton.png" data-posX="195" data-posY="440">
     <!-- Script de la página -->
     <script type="module">
+
+        // Importaciones---------------------------------------------------
         import {aplicacion} from './js/app.js';
-        import {animacionEntrada, parpadea} from './js/animaciones.js';
         import {cargando} from './js/funciones.js';
+        import {animacionEntrada, parpadea} from './js/animaciones.js';
+        
+        // Variables-------------------------------------------------------
+        const inicio = $('#inicio');
+        const boton = $('#boton');
 
-        jQuery(function($){
-            
-            // Cargar Audios------------------------------------------------------
-            const audio = new Audio('./audios/R6_01_1.mp3');
+        // Audio-----------------------------------------------------------
+        const audio = [
+            new Audio('./audios/R6_01_1.mp3')
+        ]
 
-            //Crear Variables-----------------------------------------------------
-            const textoInicio = $('#textoInicio');
-            const btnIniciar = $('#btn-iniciar');
-            
-            //Iniciar contenido de la página--------------------------------------
+        //Al cargar la página
+        jQuery(function($){ 
+            aplicacion.bloquearNavegacion(); 
             cargando(iniciarPagina);
-
-            function iniciarPagina(){
-                aplicacion.bloquearNavegacion();
-
-                aplicacion.reproducirAudio(audio, finalPagina, 1000);
-                animacionEntrada(textoInicio, 'izquierda-derecha', 1, 1);
-            }
-
-            function finalPagina(){
-                parpadea(btnIniciar);
-                btnIniciar.click(function(){
-                    aplicacion.nextPag();
-                });
-            }
         });
+
+        const iniciarPagina = ()=>{
+            aplicacion.reproducirAudio(audio[0], finalPagina, 1);
+            animacionEntrada(inicio, 'izquierda-derecha', 1);
+        }
+
+        const finalPagina = ()=>{
+            parpadea(boton);
+        }
+
+        boton.click(()=>{
+            aplicacion.nextPag();
+        });
+
     </script>
 
     <!-- Termina Script -->

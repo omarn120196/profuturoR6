@@ -1,4 +1,10 @@
+gsap.config({
+    nullTargetWarn: false
+});
+
 export function animacionEntrada(elemento, direccion, tiempo, delay = 0){
+
+    gsap.killTweensOf(elemento);
 
     // Hacer visible el elemento
     elemento.css({
@@ -6,115 +12,128 @@ export function animacionEntrada(elemento, direccion, tiempo, delay = 0){
         'opacity': '1'
     });
     
-    // Seleccionar Animación
-    switch(direccion){
-        case 'derecha-izquierda':
-            gsap.from(elemento, {
-                opacity: 0,
-                x: 500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.out(1.7)" 
-            });
-            break;
-        case 'izquierda-derecha':
-            gsap.from(elemento, {
-                opacity: 0,
-                x: -500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.out(1.7)" 
-            });
-            break;
-        case 'arriba-abajo':
-            gsap.from(elemento, {
-                opacity: 0,
-                y: -500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.out(1.7)" 
-            });
-            break;
-        case 'abajo-arriba':
-            gsap.from(elemento, {
-                opacity: 0,
-                y: 500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.out(1.7)" 
-            });
-            break;
-        default : 
-            gsap.from(elemento, {
-                opacity: 0,
-                duration: tiempo,
-                delay: delay 
-            });
-            break;
+    if(elemento){
+        // Seleccionar Animación
+        switch(direccion){
+            case 'derecha-izquierda':
+                gsap.from(elemento, {
+                    opacity: 0,
+                    x: 500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.out(1.7)" 
+                });
+                break;
+            case 'izquierda-derecha':
+                gsap.from(elemento, {
+                    opacity: 0,
+                    x: -500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.out(1.7)" 
+                });
+                break;
+            case 'arriba-abajo':
+                gsap.from(elemento, {
+                    opacity: 0,
+                    y: -500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.out(1.7)" 
+                });
+                break;
+            case 'abajo-arriba':
+                gsap.from(elemento, {
+                    opacity: 0,
+                    y: 500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.out(1.7)" 
+                });
+                break;
+            default : 
+                gsap.from(elemento, {
+                    opacity: 0,
+                    duration: tiempo,
+                    delay: delay 
+                });
+                break;
+        }
     }
 }
 
-export function animacionSalida(elemento, direccion, tiempo, delay = 0){
+export function animacionSalida(elemento, direccion, tiempo, delay = 0, remover = false){
+
+    gsap.killTweensOf(elemento);
     
-    // Seleccionar Animación
-    switch(direccion){
-        case 'izquierda-derecha':
-            gsap.to(elemento, {
-                opacity: 0,
-                x: 500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.in(1.7)"
+    if(elemento){
+        // Seleccionar Animación
+        switch(direccion){
+            case 'izquierda-derecha':
+                gsap.to(elemento, {
+                    opacity: 0,
+                    x: 500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.in(1.7)"
+                });
+                break;
+            case 'derecha-izquierda':
+                gsap.to(elemento, {
+                    opacity: 0,
+                    x: -500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.in(1.7)"
+                });
+                break;
+            case 'abajo-arriba':
+                gsap.to(elemento, {
+                    opacity: 0,
+                    y: 500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.in(1.7)"
+                });
+                break;
+            case 'arriba-abajo':
+                gsap.to(elemento, {
+                    opacity: 0,
+                    y: -500,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.in(1.7)"
+                });
+                break;
+            default : 
+                gsap.to(elemento, {
+                    opacity: 0,
+                    duration: tiempo,
+                    delay: delay,
+                    ease: "back.in(1.7)" 
+                });
+                break;
+        }
+
+        const retraso = (delay * 1000) + (tiempo * 1000);
+
+        setTimeout(()=>{
+            elemento.css({
+                'display': 'none', 
+                'opacity': '1'
             });
-            break;
-        case 'derecha-izquierda':
-            gsap.to(elemento, {
-                opacity: 0,
-                x: -500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.in(1.7)"
-            });
-            break;
-        case 'abajo-arriba':
-            gsap.to(elemento, {
-                opacity: 0,
-                y: 500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.in(1.7)"
-            });
-            break;
-        case 'arriba-abajo':
-            gsap.to(elemento, {
-                opacity: 0,
-                y: -500,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.in(1.7)"
-            });
-            break;
-        default : 
-            gsap.to(elemento, {
-                opacity: 0,
-                duration: tiempo,
-                delay: delay,
-                ease: "back.in(1.7)" 
-            });
-            break;
+
+            if(remover){
+                elemento.remove();
+            }
+        }, retraso)
     }
-
-    const retraso = (delay * 1000) + 1000;
-
-    setTimeout(()=>{
-        elemento.css({
-            'display': 'none', 
-            'opacity': '1'
-        });
-    }, retraso)
 }
 
 export function parpadea(elemento, tiempo=.8, delay=0){
+
+    gsap.killTweensOf(elemento);
+
     // Hacer visible el elemento
     elemento.css({
         'display': 'block',
@@ -122,14 +141,16 @@ export function parpadea(elemento, tiempo=.8, delay=0){
         'cursor': 'pointer'
     });
 
-    gsap.to(elemento, {
-        duration: tiempo,
-        delay: delay,
-        repeat: -1,
-        yoyo: true,
-        opacity: 1,
-        ease: "sine.inOut"
-    });
+    if(elemento){
+        gsap.to(elemento, {
+            duration: tiempo,
+            delay: delay,
+            repeat: -1,
+            yoyo: true,
+            opacity: 1,
+            ease: "sine.inOut"
+        });
+    }
 }
 
 export function pararParpadear(elemento, cursorActivo = false){

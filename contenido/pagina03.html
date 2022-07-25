@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 07 | I4L</title>
-    <!-- <script src="./js/librerias/jquery.ui.touch-punch.min.js"></script> -->
+    <title>Página 01 | I4L</title>
 </head>
-
-
-<body>
+<body class="pagina-interna">
     <img class="elementos" id="fondo" src="./img/pagina03/fondo.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="titulo" src="./img/pagina03/titulo.png" data-posX="0" data-posY="0" alt="">
    
@@ -59,321 +56,219 @@
     <img class="elementos " id="botonReintentar"  src="./img/pagina03/btnReintentar.png" data-posX="300" data-posY="470" alt="">
     <img class="elementos " id="siguiente"  src="./img/pagina03/siguiente.png" data-posX="926.955 " data-posY="480.781 " alt="">
 
-    <!-- <img class="elementos" id="dialogo" src="./img/pagina03/dialogo01.png" data-posX="0" data-posY="0" alt=""> -->
-      <style>
-    .boton {
-        background-color: rgba(167, 255, 108, 0.007);
-    }
-
-    </style>
 
     <!-- Script de la página -->
     <script type="module">
-        import { aplicacion } from './js/app.js';
-        import { animacionEntrada, animacionSalida, parpadea } from './js/animaciones.js';
-        import { cargando } from './js/funciones.js';
 
-        jQuery(function ($) {
+        // Importaciones---------------------------------------------------
+        import {aplicacion} from './js/app.js';
+        import {cargando} from './js/funciones.js';
+        import {animacionEntrada, parpadea, animacionSalida} from './js/animaciones.js';
 
-            // Cargar Audios------------------------------------------------------
-            const audio = [
-                new Audio('./audios/R6_03_1.mp3'),
-                new Audio('./audios/R6_03_2.mp3'),
-                
-            ]
+        // Variables-------------------------------------------------------
+        
+        const titulo = $('#titulo');
+        const robot = $('#robot7');
 
-            //Crear Variables-----------------------------------------------------
-            const titulo = $('#titulo');
-            //const dialogo = $('#dialogo');
-            const robot = $('#robot7');
+        const drag1 = $('#drag1');
+        const drag2 = $('#drag2');
+        const drag3 = $('#drag3');
+        const drag4 = $('#drag4');
+        const drag5 = $('#drag5');
+        const drag6 = $('#drag6');
 
-            const drag1 = $('#drag1');
-            const drag2 = $('#drag2');
-            const drag3 = $('#drag3');
-            const drag4 = $('#drag4');
-            const drag5 = $('#drag5');
-            const drag6 = $('#drag6');
+        const drag7 = $('#drag7');
+        const drag8 = $('#drag8');
+        const drag9 = $('#drag9');
+        const drag10 = $('#drag10');
+        const drag11 = $('#drag11');
+        const drag12 = $('#drag12');
 
-            const drag7 = $('#drag7');
-            const drag8 = $('#drag8');
-            const drag9 = $('#drag9');
-            const drag10 = $('#drag10');
-            const drag11 = $('#drag11');
-            const drag12 = $('#drag12');
+        const info01 = $('#info01');
+        const info02 = $('#info02');
+        const info03 = $('#info03');
+        const info04 = $('#info04');
+        const info05 = $('#info05');
+        const paloma = $('#paloma');
+        const tache = $('#tache');
+        const botonValidar = $('#botonValidar');
+        const retroBien = $('#retroBien');
+        const retroMal = $('#retroMal');
+        const botonReintentar = $('#botonReintentar');
+        const siguiente = $('#siguiente');
 
-            const info01 = $('#info01');
-            const info02 = $('#info02');
-            const info03 = $('#info03');
-            const info04 = $('#info04');
-            const info05 = $('#info05');
-            const paloma = $('#paloma');
-            const tache = $('#tache');
-            var botonValidar = $('#botonValidar');
-            // const avanzar = $('#avanzar');
-            const retroBien = $('#retroBien');
-            const retroMal = $('#retroMal');
-            const botonReintentar = $('#botonReintentar');
-            const siguiente = $('#siguiente');
-           
+        const drop1 = $('#drop1');
+        const drop2 = $('#drop2');
+        const drop3 = $('#drop3');
+        const drop4 = $('#drop4');
+        const drop5 = $('#drop5');
+        const drop6 = $('#drop6');
 
-            const drop1 = $('#drop1');
-            const drop2 = $('#drop2');
-            const drop3 = $('#drop3');
-            const drop4 = $('#drop4');
-            const drop5 = $('#drop5');
-            const drop6 = $('#drop6');
+        const drop7 = $('#drop7');
+        const drop8 = $('#drop8');
+        const drop9 = $('#drop9');
+        const drop10 = $('#drop10');
+        const drop11 = $('#drop11');
+        const drop12 = $('#drop12');
 
-            const drop7 = $('#drop7');
-            const drop8 = $('#drop8');
-            const drop9 = $('#drop9');
-            const drop10 = $('#drop10');
-            const drop11 = $('#drop11');
-            const drop12 = $('#drop12');
+        let bloque1 = false;
+        let bloque2 = false;
+        let contador1= 0;
+        let contador2= 0;
 
-            var bloque1 = false;
-            var bloque2 = false;
-            var contador1= 0;
-            var contador2= 0;
+        let dropActivoSubstr = "";
+        let dragActivoSubstr = ""; 
+        let esteIDSubstr ="";
 
+        const elementosDrag = $('.drag');
+        const elementosDrop = $('.drop'); 
 
-            //Iniciar contenido de la página--------------------------------------
-
-            cargando(iniciarPagina);
-
-            function iniciarPagina() {
-              
-                animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
-                //ejercicioPag07();
-                //animacionEntrada(robot, 'arriba-abajo', 1, 1);
-                // setTimeout(() => {
-                //     flotar(robot, 'i');
-                //     hablar(robot, 'i');
-                // }, 2000);
-                 aplicacion.reproducirAudio(audio[0], ejercicioPag07, 1000);
-                  animacionEntrada(info01, 'arriba-abajo', 1, 1);
-                animacionEntrada(info02, 'arriba-abajo', 1, 1.5);
-            }
-
+        let dragSelect;
+        let dropCorrespondiente;
             
+        let aciertos = 0;
 
-            function ejercicioPag07() {
-                //pararHablar();                
-                //animacionSalida(robot, 'default', .5);
+        let minimoPuntuacion = 6;
+        let contadorCorrectos = 0;
 
-                animacionEntrada(drag1, 'arriba-abajo', 1, 1);
-                animacionEntrada(drag2, 'arriba-abajo', 1, 1.5);
-                animacionEntrada(drag3, 'arriba-abajo', 1, 5);
-                animacionEntrada(drag4, 'arriba-abajo', 1, 5.5);
-                animacionEntrada(drag5, 'arriba-abajo', 1, 3);
-                animacionEntrada(drag6, 'arriba-abajo', 1, 3.5);
-                animacionEntrada(drag7, 'arriba-abajo', 1, 6);
-                animacionEntrada(drag8, 'arriba-abajo', 1, 6.5);
-                animacionEntrada(drag9, 'arriba-abajo', 1, 2);
-                animacionEntrada(drag10, 'arriba-abajo', 1, 2.5);
-                animacionEntrada(drag11, 'arriba-abajo', 1, 4);
-                animacionEntrada(drag12, 'arriba-abajo', 1, 4.5);
+        // Audio-----------------------------------------------------------
+        const audio = [
+            new Audio('./audios/R6_03_1.mp3'),
+            new Audio('./audios/R6_03_2.mp3'),
+            
+        ]
 
-               
-                // animacionEntrada(info03, 'arriba-abajo', 1, 2);
-                
+        //Al cargar la página
+        jQuery(function($){ 
+            cargando(iniciarPagina);
+        });
 
-                animacionEntrada(drop1, 'default', 1, 1);
-                // animacionEntrada(drop2, 'default', 1, 1);
-                // animacionEntrada(drop3, 'default', 1, 1);
-                // animacionEntrada(drop4, 'default', 1, 1);
-                // animacionEntrada(drop5, 'default', 1, 1);
-                // animacionEntrada(drop6, 'default', 1, 1);
+        const iniciarPagina = ()=>{
+            aplicacion.reproducirAudio(audio[0], ejercicioPag07, 1000);
+            animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
+            animacionEntrada(info01, 'arriba-abajo', 1, 1);
+            animacionEntrada(info02, 'arriba-abajo', 1, 1.5);
+        }
 
-                relacionar();
-            }
+        const ejercicioPag07 = ()=>{
+            animacionEntrada(drag1, 'arriba-abajo', 1, 1);
+            animacionEntrada(drag2, 'arriba-abajo', 1, 1.5);
+            animacionEntrada(drag3, 'arriba-abajo', 1, 5);
+            animacionEntrada(drag4, 'arriba-abajo', 1, 5.5);
+            animacionEntrada(drag5, 'arriba-abajo', 1, 3);
+            animacionEntrada(drag6, 'arriba-abajo', 1, 3.5);
+            animacionEntrada(drag7, 'arriba-abajo', 1, 6);
+            animacionEntrada(drag8, 'arriba-abajo', 1, 6.5);
+            animacionEntrada(drag9, 'arriba-abajo', 1, 2);
+            animacionEntrada(drag10, 'arriba-abajo', 1, 2.5);
+            animacionEntrada(drag11, 'arriba-abajo', 1, 4);
+            animacionEntrada(drag12, 'arriba-abajo', 1, 4.5);
 
-            function relacionar() {
-              var dropActivoSubstr = "";
-              var dragActivoSubstr = ""; 
-               var esteIDSubstr ="";
+            animacionEntrada(drop1, 'default', 1, 1);
 
-                const elementosDrag = $('.drag');
-                const elementosDrop = $('.drop'); 
-     
-                let dragSelect;
-                let dropCorrespondiente;
-                 
-                let aciertos = 0;
+            relacionar();
+        }
 
-                let minimoPuntuacion = 6;
-                let contadorCorrectos = 0;
+        const relacionar = ()=>{
+            elementosDrag.draggable({
+                revert: true,
+                start: function (event, ui) {
+                    dragSelect = $(this).data('id');
+                    var esteID = $(this).data("id");
+                    console.log("Drag seleccionado: " + esteID);
+                    var esteIDSubstr = $(this).attr("id").substr(4, 1);
+                    console.log("Drag seleccionado: " + esteIDSubstr);
+                    dragActivoSubstr = esteIDSubstr;
+                }
+            });
 
-                // elementosDrag.css({
-                //               'cursor': 'pointer',
-                //               'opacity': '1'
-                //           });
+            elementosDrop.droppable({
+                accept: elementosDrag,
+                tolerance: "touch",
 
+                drop: function( event, ui ) {
+                    dropCorrespondiente = $(this).data('id');
+                    verificar();
+                    esteIDSubstr = $(this).attr("id").substr(4, 1);
+                    dropActivoSubstr = esteIDSubstr;
+                    console.log("colisión con: " + esteIDSubstr);
+                }
+            });
+        }
 
+        const verificar = ()=>{
+            let str_dropActivoSubstr = String(dropActivoSubstr);
+            let res_dropActivoSubstr = "";
 
-                elementosDrag.draggable({
-                    revert: true,
-                    start: function (event, ui) {
-                        dragSelect = $(this).data('id');
-                        var esteID = $(this).data("id");
-                        console.log("Drag seleccionado: " + esteID);
-                        var esteIDSubstr = $(this).attr("id").substr(4, 1);
-                        console.log("Drag seleccionado: " + esteIDSubstr);
-                        // dragActivo = esteID;
-                        dragActivoSubstr = esteIDSubstr;
+            let str_dragActivoSubstr =  String(dragActivoSubstr);
+            let str_dragActivoSubstr2 = 1;
+            let str_dragActivoSubstr3 = 1;
+            let str_dragActivoSubstr4 = 1;
+            let str_dragActivoSubstr5 = 1;
+            let str_dragActivoSubstr6 = 1;
+            let str_dragActivoSubstr7 = 1;
+            let str_dragActivoSubstr8 = 1;
+            let str_dragActivoSubstr9 = 1;
+            let str_dragActivoSubstr10 = 1;
+            let res_dragActivoSubstr = "";
 
+            if (str_dragActivoSubstr == dropCorrespondiente || str_dragActivoSubstr3 == dropCorrespondiente || str_dragActivoSubstr4 == dropCorrespondiente || str_dragActivoSubstr6 == dropCorrespondiente || str_dragActivoSubstr7 == dropCorrespondiente || str_dragActivoSubstr8 == dropCorrespondiente || str_dragActivoSubstr9 == dropCorrespondiente || str_dragActivoSubstr10 == dropCorrespondiente) {
+                console.log("ahuevo si entroo tengo: " +str_dragActivoSubstr + "drag");
+                let dragActivo = $(`#drag${dragSelect}`);
+                let dropActivo = $(`#drop${dropCorrespondiente}`);
+                $(this).hide();
 
-                    }
-                });
-
-                elementosDrop.droppable({
-                    accept: ".drag",
-                    tolerance: "touch",
-
-                    drop: function( event, ui ) {
-                        dropCorrespondiente = $(this).data('id');
-                       verificar();
-                        // $(this).hide();
-                       // var esteID = $(this).attr("_id");
-                       esteIDSubstr = $(this).attr("id").substr(4, 1);
-                            // dropActivo = esteID;
-                            dropActivoSubstr = esteIDSubstr;
-                            console.log("colisión con: " + esteIDSubstr);
-                    }
-                });
-
-                function verificar() {
-                  // contador1++;
-                  contador2++;
-               var str_dropActivoSubstr = String(dropActivoSubstr);
-               var res_dropActivoSubstr = "";
-
-               var str_dragActivoSubstr =  String(dragActivoSubstr);
-               var str_dragActivoSubstr2 = 1;
-               var str_dragActivoSubstr3 = 1;
-               var str_dragActivoSubstr4 = 1;
-               var str_dragActivoSubstr5 = 1;
-               var str_dragActivoSubstr6 = 1;
-               var str_dragActivoSubstr7 = 1;
-               var str_dragActivoSubstr8 = 1;
-               var str_dragActivoSubstr9 = 1;
-               var str_dragActivoSubstr10 = 1;
-
-               var res_dragActivoSubstr = "";
-
-                  
-                    
-                    if (str_dragActivoSubstr == dropCorrespondiente || str_dragActivoSubstr3 == dropCorrespondiente || str_dragActivoSubstr4 == dropCorrespondiente || str_dragActivoSubstr6 == dropCorrespondiente || str_dragActivoSubstr7 == dropCorrespondiente || str_dragActivoSubstr8 == dropCorrespondiente || str_dragActivoSubstr9 == dropCorrespondiente || str_dragActivoSubstr10 == dropCorrespondiente) {
-                       //parpadea(botonValidar);
-                    console.log("ahuevo si entroo tengo: " +str_dragActivoSubstr + "drag");
-                    let dragActivo = $(`#drag${dragSelect}`);
-                    let dropActivo = $(`#drop${dropCorrespondiente}`);
-                    $(this).hide();
-                    // dragActivo.draggable({
-                    //   revert: false,
-                    // });
-                  
-
-                      if((dragSelect==1) || (dragSelect==3) || (dragSelect==4) || (dragSelect==6) || (dragSelect==7) || (dragSelect==8) || (dragSelect==9) || (dragSelect==10) ){ 
-                      aciertos++;
-                      contador1++;                
+                if((dragSelect==1) || (dragSelect==3) || (dragSelect==4) || (dragSelect==6) || (dragSelect==7) || (dragSelect==8) || (dragSelect==9) || (dragSelect==10) ){ 
+                    aciertos++;
+                    contador1++;                
                     dragActivo.draggable({
-                      revert: false,
+                        revert: false,
                     });
                     dragActivo.draggable("disable");
                     dragActivo.css({
-                      cursor: 'default'
+                        cursor: 'default'
                     });
-
-
-                    } 
-                     bloque1=true;
-                     console.log("tengo: " + aciertos+ "aciertos");
-                     console.log("tengo contados: " + contador1+ "contador1");
-                        
-                   
-                  }else{
-                  
-                    //  if((dragSelect==11) || (dragSelect==12) || (dragSelect==2) || (dragSelect==5)){                 
-                    //      contador1--;
-                    //      console.log("tengo restados: " + aciertos+ " aciertos porque le reste");                   
-
-                    // }
-
                 }
-                 
-                     if (contador1 >= 8) {
-                       parpadea(botonValidar);
-                       
-                    }
+                
+                bloque1=true;
+                console.log("tengo: " + aciertos+ "aciertos");
+                console.log("tengo contados: " + contador1+ "contador1");
+            }
 
+            if (contador1 >= 8) {
+                parpadea(botonValidar);
+            }
+        }    
 
-
-                    }// termina  verificar
-                  //parpadea(botonValidar);  
-                //   if (dragSelect === dropCorrespondiente) {
-                    
-
-                // }
-
-
-
-            ///////////////// botonValidar ////////////////
-            botonValidar.click(function() {
-              if ($(this).css('cursor') == 'pointer') {
+        botonValidar.click(function() {
+            if ($(this).css('cursor') == 'pointer') {
                 TweenMax.killTweensOf($(this));
                 $(this).hide();                
                 $(this).css({
-                  'cursor': 'default',
-                  'opacity': '1'
+                    'cursor': 'default',
+                    'opacity': '1'
                 });
 
-                     console.log("tengo: " + aciertos+ "aciertos validados");
+                console.log("tengo: " + aciertos+ "aciertos validados");
 
-                      if (bloque1==true) {
-                              if (aciertos == 8) { 
-                             aplicacion.terminaPantalla();                      
-                             siguiente.hide(); 
-                             animacionEntrada(retroBien, 'izquierda-derecha', 1, 1);
-                             aplicacion.reproducirAudio(audio[1], aplicacion.terminaPantalla, 2000);
-                            
-
-
-                           }else{
-                             siguiente.hide(); 
-                             //animacionEntrada(retroMal, 'izquierda-derecha', 1, 1);
-                             //aplicacion.reproducirAudio(audio[2], parpadeaReintentar, 2000);
-                             parpadeaReintentar();
-                           }
+                    if (bloque1==true) {
+                            if (aciertos == 8) { 
+                            aplicacion.terminaPantalla();                      
+                            siguiente.hide(); 
+                            animacionEntrada(retroBien, 'izquierda-derecha', 1, 1);
+                            aplicacion.reproducirAudio(audio[1], aplicacion.terminaPantalla, 2000);
+                        }
+                        else{
+                            siguiente.hide(); 
+                            parpadea(botonReintentar);
+                        }
 
 
-                      }
-                    
-                  }
-
-                });
-
-
-
-
-
+                    }
+            }    
+        });
         
-
-
-
-
-
-        
-
-
-        
-
-                    
-            function parpadeaReintentar(){
-               
-               parpadea(botonReintentar);
-            }
-
-            $("#botonReintentar").click(function() {
+        $("#botonReintentar").click(function() {
             if ($(this).css('cursor') == 'pointer') {
                 TweenMax.killTweensOf($(this));
                 $(this).css({
@@ -381,25 +276,9 @@
                     'opacity': '1'
                 });
                 aplicacion.recargarPag();
-            }
+            }    
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            } 
-        });
     </script>
 
     <!-- Termina Script -->

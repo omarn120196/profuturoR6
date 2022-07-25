@@ -4,43 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 09 | I4L</title>
-
+    <title>Página 01 | I4L</title>
 </head>
-<body>
+<body class="pagina-interna">
     <img class="elementos" id="titulo" src="./img/pagina09/titulo.png" data-posX="0" data-posY="0" alt="">
     <img class="elementos" id="retro" src="./img/pagina09/retro.png" data-posX="0" data-posY="0" alt="">
 
-
     <!-- Script de la página -->
     <script type="module">
+
+        // Importaciones---------------------------------------------------
         import {aplicacion} from './js/app.js';
         import {animacionEntrada} from './js/animaciones.js';
         import {cargando} from './js/funciones.js';
 
-        jQuery(function($){
-            
-            // Cargar Audios------------------------------------------------------
-            const audio = new Audio('./audios/R6_09_1.mp3');
+        // Audio-----------------------------------------------------------
+        const audio = [
+            new Audio('./audios/R6_09_1.mp3'),
+        ]
 
-            //Crear Variables-----------------------------------------------------
-            
+        // Variables-------------------------------------------------------
             const titulo = $('#titulo');
             const retro = $('#retro');
 
-            //Iniciar contenido de la página--------------------------------------
+        jQuery(function($){
             cargando(iniciarPagina);
-
-            function iniciarPagina(){
-                aplicacion.reproducirAudio(audio, finalPagina, 1000);
-                animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
-                animacionEntrada(retro, 'izquierda-derecha', 1, 1);
-            }
-
-            function finalPagina(){
-                aplicacion.terminaPantalla();
-            }
         });
+
+        const iniciarPagina = ()=>{
+            aplicacion.reproducirAudio(audio[0], finalPagina, 1000);
+            animacionEntrada(titulo, 'izquierda-derecha', 1, 1);
+            animacionEntrada(retro, 'izquierda-derecha', 1, 1);
+        }
+
+        const finalPagina = ()=>{
+            aplicacion.terminaPantalla();
+        }
+
     </script>
 
     <!-- Termina Script -->
