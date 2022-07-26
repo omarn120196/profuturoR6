@@ -44,6 +44,7 @@ export class App{
     iniciar(){
         conectarLMS();
         calcularTiempo();
+        statusCurso('completed');
         desactivarBotonSiguiente();
         actualizarTemario(this.noPagina);
         actualizarPorcentaje(this.noPagina, this.totalPaginas);
@@ -85,6 +86,7 @@ export class App{
 
             this.noPagina++;
             actualizarTemario(this.noPagina);
+            // this.actualizarEstado();
             desactivarBotonSiguiente();
             this.detenerAudios();
             asignarLocacion(this.noPagina);
